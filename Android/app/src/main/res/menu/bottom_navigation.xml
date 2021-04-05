@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/meal"
+        android:enabled="true"
+        android:icon="@drawable/meal"
+        android:title="급식"/>
+
+    <item
+        android:id="@+id/menu"
+        android:enabled="true"
+        android:icon="@drawable/menu"
+        android:title="메뉴"/>
+
+    <item
+        android:id="@+id/member"
+        android:enabled="true"
+        android:icon="@drawable/avatar"
+        android:title="회원"/>
+</menu>
