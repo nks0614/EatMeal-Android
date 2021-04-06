@@ -8,6 +8,4 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="nowTime">#EFEFEF</color>
-    <color name="notNow">#F6F6F6</color>
 </resources>

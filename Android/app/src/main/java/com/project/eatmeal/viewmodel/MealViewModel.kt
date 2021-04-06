@@ -1,10 +1,7 @@
 package com.project.eatmeal.viewmodel
 
 import android.util.Log
-import android.view.View
-import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.MutableLiveData
-import com.project.eatmeal.adapter.TodayMealAdapter
 import com.project.eatmeal.base.BaseViewModel
 import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.data.response.MResponse

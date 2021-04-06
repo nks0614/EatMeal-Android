@@ -11,40 +11,26 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:flexWrap="wrap"
+        app:alignItems="stretch"
+        app:alignContent="stretch"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:paddingStart="10dp"
-        android:background="@color/notNow">
+        android:paddingStart="10dp">
 
         <TextView
             android:id="@+id/nameText"
-            android:layout_width="0dp"
-            app:layout_constraintWidth_percent="0.3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{food.name}"
             tools:text="검은깨두부구이/양념장"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/chainText1"
-            app:layout_constraintHorizontal_chainStyle="packed"/>
-
-        <TextView
-            android:id="@+id/chainText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="는 (은)"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            app:layout_constraintTop_toTopOf="@id/nameText"
-            app:layout_constraintBottom_toBottomOf="@id/nameText"
-            app:layout_constraintStart_toEndOf="@id/nameText" />
+            android:layout_marginBottom="4dp"/>
 
         <TextView
             android:id="@+id/frequencyText"
@@ -54,12 +40,7 @@
             tools:text="1000"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginStart="4dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/starText"
-            app:layout_constraintStart_toEndOf="@id/chainText1"
-            app:layout_constraintEnd_toStartOf="@id/chainText2"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/chainText2"
@@ -69,9 +50,7 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             android:layout_marginStart="2dp"
-            app:layout_constraintBottom_toBottomOf="@id/frequencyText"
-            app:layout_constraintStart_toEndOf="@id/frequencyText"
-            app:layout_constraintEnd_toStartOf="@id/percentText"/>
+            android:layout_marginTop="4dp"/>
 
         <TextView
             android:id="@+id/percentText"
@@ -82,10 +61,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginStart="2dp"
-            app:layout_constraintBottom_toBottomOf="@id/frequencyText"
-            app:layout_constraintStart_toEndOf="@id/chainText2"
-            app:layout_constraintEnd_toStartOf="@id/chainText3"/>
+            android:layout_marginStart="2dp" />
 
         <TextView
             android:id="@+id/chainText3"
@@ -95,8 +71,7 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             android:layout_marginStart="2dp"
-            app:layout_constraintBottom_toBottomOf="@id/frequencyText"
-            app:layout_constraintStart_toEndOf="@id/percentText" />
+            android:layout_marginTop="4dp"/>
 
         <TextView
             android:id="@+id/starText"
@@ -107,25 +82,17 @@
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@id/frequencyText"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/chainText1"
-            app:layout_constraintEnd_toStartOf="@id/chainText4"/>
+            android:layout_marginStart="4dp" />
 
         <TextView
             android:id="@+id/chainText4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="의 평점을 받았습니다."
+            android:layout_height="20dp"
+            android:text="의 평점입니다."
             android:textColor="@color/black"
-            android:textSize="12sp"
             android:layout_marginStart="2dp"
-            app:layout_constraintBottom_toBottomOf="@id/starText"
-            app:layout_constraintStart_toEndOf="@id/starText" />
+            android:layout_marginTop="4dp"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </com.google.android.flexbox.FlexboxLayout>
 
 </layout>

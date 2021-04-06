@@ -89,4 +89,7 @@ dependencies {
     //button process
     compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
 
+    //flow layout
+    implementation 'com.google.android:flexbox:2.0.1'
+
 }

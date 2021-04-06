@@ -1,9 +1,10 @@
 package com.project.eatmeal.adapter
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView
+import com.project.eatmeal.BR
 import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.databinding.ItemTodayMealBinding
 

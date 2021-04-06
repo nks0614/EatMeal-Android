@@ -1,7 +1,6 @@
 package com.project.eatmeal.view.fragment
 
-import android.graphics.Color
-import android.view.animation.Animation
+
 import android.view.animation.AnimationUtils
 import androidx.lifecycle.ViewModelProvider
 import com.project.eatmeal.R
@@ -18,22 +17,8 @@ class MealFragment : BaseFragment<FragmentMealBinding, MealViewModel>() {
     override val viewModel: MealViewModel
         get() = ViewModelProvider(this)[MealViewModel::class.java]
 
-    val colorNow = Color.argb(255,239,239,239)
-    val colorNot = Color.argb(255,246,246,246)
 
     override fun init() {
-        val now : Date = Date()
-        binding.breakfastView.setBackgroundColor(colorNot)
-        binding.lunchView.setBackgroundColor(colorNot)
-        binding.dinnerView.setBackgroundColor(colorNot)
-        if(now.hours in 0..8){
-            binding.breakfastView.setBackgroundColor(colorNow)
-        } else if(now.hours in 9..12){
-            binding.lunchView.setBackgroundColor(colorNow)
-        } else if(now.hours in 13..18){
-            binding.dinnerView.setBackgroundColor(colorNow)
-        }
-
         with(viewModel){
             getTodayMeal()
         }
@@ -67,7 +52,6 @@ class MealFragment : BaseFragment<FragmentMealBinding, MealViewModel>() {
                 with(viewModel){
                     breakfastVisible.value = !(breakfastVisible.value!!)
                 }
-
             }
             2 -> {
                 binding.lunchArrow.startAnimation(AnimationUtils.loadAnimation(context, animation))

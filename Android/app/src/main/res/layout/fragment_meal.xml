@@ -29,6 +29,7 @@
                 app:layout_constraintWidth_percent="0.9"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
+                android:background="@drawable/button_radius"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +38,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아침"
+                    android:text="아침 상세보기"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/black"
@@ -56,15 +57,6 @@
                     app:layout_constraintEnd_toEndOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:layout_width="0dp"
-                app:layout_constraintWidth_percent="0.9"
-                android:layout_height="1dp"
-                android:background="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/breakfastView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/breakfastRcView"
@@ -85,6 +77,7 @@
                 android:layout_width="0dp"
                 app:layout_constraintWidth_percent="0.9"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_radius"
                 android:padding="8dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@id/breakfastRcView"
@@ -95,7 +88,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="점심"
+                    android:text="점심 상세보기"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/black"
@@ -114,15 +107,6 @@
                     app:layout_constraintEnd_toEndOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:layout_width="0dp"
-                app:layout_constraintWidth_percent="0.9"
-                android:layout_height="1dp"
-                android:background="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/lunchView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lunchRcView"
@@ -143,6 +127,7 @@
                 android:layout_width="0dp"
                 app:layout_constraintWidth_percent="0.9"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_radius"
                 android:padding="8dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@id/lunchRcView"
@@ -154,7 +139,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="저녁"
+                    android:text="저녁 상세보기"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/black"
@@ -173,15 +158,6 @@
                     app:layout_constraintEnd_toEndOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:layout_width="0dp"
-                app:layout_constraintWidth_percent="0.9"
-                android:layout_height="1dp"
-                android:background="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/dinnerView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/dinnerRcView"
