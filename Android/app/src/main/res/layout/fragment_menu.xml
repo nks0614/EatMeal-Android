@@ -10,11 +10,19 @@
             type="com.project.eatmeal.viewmodel.MenuViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </layout>

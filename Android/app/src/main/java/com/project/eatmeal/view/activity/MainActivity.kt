@@ -2,6 +2,7 @@ package com.project.eatmeal.view.activity
 
 import android.util.Log
 import android.view.MenuItem
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.project.eatmeal.R
@@ -20,6 +21,10 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override val layoutRes: Int
         get() = R.layout.activity_main
 
+    var mealFragment : Fragment? = null
+    var menuFragment : Fragment? = null
+    var memberFragment : Fragment? = null
+
     override fun init() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, MealFragment())
@@ -37,9 +42,27 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             val fm = supportFragmentManager.beginTransaction()
 
             when(item.itemId){
-                R.id.meal -> fm.replace(R.id.frameLayout, MealFragment()).commit()
-                R.id.menu -> fm.replace(R.id.frameLayout, MenuFragment()).commit()
-                R.id.member -> fm.replace(R.id.frameLayout, MemberFragment()).commit()
+                R.id.meal -> {
+                    if (mealFragment == null) {
+                        Log.d("tests", "new meal")
+                        mealFragment = MealFragment()
+                    }
+                    fm.replace(R.id.frameLayout, mealFragment!!).commit()
+                }
+                R.id.menu -> {
+                    if(menuFragment == null) {
+                        Log.d("tests", "new menu")
+                        menuFragment = MenuFragment()
+                    }
+                    fm.replace(R.id.frameLayout, menuFragment!!).commit()
+                }
+                R.id.member -> {
+                    if(memberFragment == null) {
+                        Log.d("tests", "new member")
+                        memberFragment = MemberFragment()
+                    }
+                    fm.replace(R.id.frameLayout, memberFragment!!).commit()
+                }
             }
             return true
         }
