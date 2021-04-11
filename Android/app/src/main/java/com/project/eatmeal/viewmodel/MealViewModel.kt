@@ -21,17 +21,17 @@ class MealViewModel : BaseViewModel() {
     val retofit : Retrofit = NetworkClient.getInstance()
     val api : MealAPI = NetworkClient.getAPI()
 
-    var breakfast : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
-    var lunch : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
-    var dinner : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
+    val breakfast : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
+    val lunch : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
+    val dinner : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
 
-    var breakfastList : MutableLiveData<ArrayList<Food>> =  MutableLiveData()
-    var lunchList : MutableLiveData<ArrayList<Food>> =  MutableLiveData()
-    var dinnerList :  MutableLiveData<ArrayList<Food>> =  MutableLiveData()
+    val breakfastList : MutableLiveData<ArrayList<Food>> =  MutableLiveData()
+    val lunchList : MutableLiveData<ArrayList<Food>> =  MutableLiveData()
+    val dinnerList :  MutableLiveData<ArrayList<Food>> =  MutableLiveData()
 
-    var breakfastVisible : MutableLiveData<Boolean> = MutableLiveData(false)
-    var lunchVisible : MutableLiveData<Boolean> = MutableLiveData(false)
-    var dinnerVisible : MutableLiveData<Boolean> = MutableLiveData(false)
+    val breakfastVisible : MutableLiveData<Boolean> = MutableLiveData(false)
+    val lunchVisible : MutableLiveData<Boolean> = MutableLiveData(false)
+    val dinnerVisible : MutableLiveData<Boolean> = MutableLiveData(false)
 
     val breakfastClick = SingleLiveEvent<Unit>()
     val lunchClick = SingleLiveEvent<Unit>()
@@ -43,8 +43,8 @@ class MealViewModel : BaseViewModel() {
     val previousClick = SingleLiveEvent<Unit>()
     val nextClick = SingleLiveEvent<Unit>()
 
-    var isGetTodayMeal : MutableLiveData<Boolean> = MutableLiveData(false)
-    var isGetMeal : MutableLiveData<Boolean> = MutableLiveData(false)
+    val isGetTodayMeal : MutableLiveData<Boolean> = MutableLiveData(false)
+    val isGetMeal : MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun getTodayMeal(){
         api.today().enqueue(object : Callback<MResponse<TodayMenu>>{
