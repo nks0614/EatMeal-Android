@@ -3,6 +3,7 @@ package com.project.eatmeal.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.project.eatmeal.base.BaseViewModel
+import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.data.response.MResponse
 import com.project.eatmeal.data.response.Meal
@@ -55,10 +56,9 @@ class MealViewModel : BaseViewModel() {
                 if(response.code() == 200){
                     Log.e("LOG TEST", "${response.code()}")
                     with(response.body()){
-                        breakfastList.value = this?.data?.breakfast
-                        lunchList.value = this?.data?.lunch
-                        dinnerList.value = this?.data?.dinner
-
+                        this?.data?.breakfast?.let { CashingData.mealData.put(CashingData.MEAL_BREAKFAST_LIST, it) }
+                        this?.data?.lunch?.let {CashingData.mealData.put(CashingData.MEAL_LUNCH_LIST, it)}
+                        this?.data?.dinner?.let {CashingData.mealData.put(CashingData.MEAL_DINNER_LIST, it)}
                         isGetTodayMeal.value = !isGetTodayMeal.value!!
                     }
                 } else {
@@ -73,21 +73,24 @@ class MealViewModel : BaseViewModel() {
     }
 
     fun getMeal(){
-        api.meal(date = spDateFormat("YYYYMMdd", progress))
+        api.meal(date = date.value!!)
                 .enqueue(object : Callback<MResponse<Meal>>{
                     override fun onResponse(call: Call<MResponse<Meal>>, response: Response<MResponse<Meal>>) {
                         if(response.code() == 200){
                             Log.e("LOG TEST", "${response.code()}")
                             with(response.body()){
-
-                                breakfast.value = replaceText(this?.data?.breakfast!!)
-                                lunch.value = replaceText(this?.data?.lunch!!)
-                                dinner.value = replaceText(this?.data?.dinner!!)
-
+                                CashingData.mealData.put(CashingData.MEAL_BREAKFAST, replaceText(this?.data?.breakfast!!))
+                                CashingData.mealData.put(CashingData.MEAL_LUNCH, replaceText(this?.data?.lunch!!))
+                                CashingData.mealData.put(CashingData.MEAL_DINNER, replaceText(this?.data?.dinner!!))
                                 isGetMeal.value = !isGetMeal.value!!
                             }
                         } else {
                             Log.e("LOG TEST", "${response.code()}")
+                            val errMsg = "존재하지 않습니다."
+                            CashingData.mealData.put(CashingData.MEAL_BREAKFAST, errMsg)
+                            CashingData.mealData.put(CashingData.MEAL_LUNCH, errMsg)
+                            CashingData.mealData.put(CashingData.MEAL_DINNER, errMsg)
+                            isGetMeal.value = !isGetMeal.value!!
                         }
                     }
 

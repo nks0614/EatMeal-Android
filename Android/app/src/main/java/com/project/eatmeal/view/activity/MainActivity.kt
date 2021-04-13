@@ -7,17 +7,16 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BaseActivity
-import com.project.eatmeal.data.enums.SortNumber
 import com.project.eatmeal.databinding.ActivityMainBinding
 import com.project.eatmeal.view.fragment.MealFragment
 import com.project.eatmeal.view.fragment.MemberFragment
 import com.project.eatmeal.view.fragment.MenuFragment
 import com.project.eatmeal.viewmodel.MainViewModel
-import com.project.eatmeal.viewmodel.MealViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
-    override val viewModel: MainViewModel = MainViewModel()
+    override val viewModel: MainViewModel
+        get() = ViewModelProvider(this)[MainViewModel::class.java]
     override val layoutRes: Int
         get() = R.layout.activity_main
 
