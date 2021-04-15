@@ -11,6 +11,7 @@ import com.project.eatmeal.databinding.ActivityMainBinding
 import com.project.eatmeal.view.fragment.MealFragment
 import com.project.eatmeal.view.fragment.MemberFragment
 import com.project.eatmeal.view.fragment.MenuFragment
+import com.project.eatmeal.view.fragment.TodayMealFragment
 import com.project.eatmeal.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
@@ -23,6 +24,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     var mealFragment: Fragment? = null
     var menuFragment: Fragment? = null
     var memberFragment: Fragment? = null
+    var todayMealFragment : Fragment? = null
 
     override fun init() {
         supportFragmentManager.beginTransaction()
@@ -61,6 +63,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                         memberFragment = MemberFragment()
                     }
                     fm.replace(R.id.frameLayout, memberFragment!!).commit()
+                }
+                R.id.todayMeal -> {
+                    if(todayMealFragment == null){
+                        Log.d("tests", "new today")
+                        todayMealFragment = TodayMealFragment()
+                    }
+                    fm.replace(R.id.frameLayout, todayMealFragment!!).commit()
                 }
             }
             return true

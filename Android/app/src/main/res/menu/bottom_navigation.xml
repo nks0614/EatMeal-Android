@@ -4,7 +4,13 @@
         android:id="@+id/meal"
         android:enabled="true"
         android:icon="@drawable/meal"
-        android:title="급식"/>
+        android:title="날짜별 급식"/>
+
+    <item
+        android:id="@+id/todayMeal"
+        android:enabled="true"
+        android:icon="@drawable/meal"
+        android:title="오늘의 급식"/>
 
     <item
         android:id="@+id/menu"
@@ -17,4 +23,6 @@
         android:enabled="true"
         android:icon="@drawable/avatar"
         android:title="회원"/>
+
+
 </menu>

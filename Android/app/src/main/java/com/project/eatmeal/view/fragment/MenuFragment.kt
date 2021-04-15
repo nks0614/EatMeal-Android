@@ -5,10 +5,14 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.SpinnerAdapter
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.project.eatmeal.R
+import com.project.eatmeal.adapter.MenuAdapter
 import com.project.eatmeal.base.BaseFragment
 import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.data.enums.SortNumber
@@ -25,29 +29,28 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
         get() = R.layout.fragment_menu
 
     override fun init() {
-        binding.filterView.z = 0f
         bindSpinnerAdapter()
         listenerSetting()
 
-        if(CashingData.menuData.size == 0){
+        if (CashingData.menuData[CashingData.MENU_LIST] == null) {
             viewModel.getMenuList()
         }
     }
 
     override fun observerViewModel() {
-        with(viewModel){
+        with(viewModel) {
             searchText.observe(this@MenuFragment, Observer {
                 Log.d("tests", searchText.value?.length!!.toString())
-                if(searchText.value?.length!! > 0){
+                if (searchText.value?.length!! > 0) {
                     binding.cancelText.visibility = View.VISIBLE
-                } else{
+                } else {
                     binding.cancelText.visibility = View.INVISIBLE
                 }
             })
 
             filterClick.observe(this@MenuFragment, Observer {
                 Log.d("tests", "filter")
-                when(binding.filterView.visibility){
+                when (binding.filterView.visibility) {
                     View.GONE -> binding.filterView.visibility = View.VISIBLE
                     View.VISIBLE -> binding.filterView.visibility = View.INVISIBLE
                 }
@@ -63,9 +66,10 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
         }
     }
 
-    private fun bindSpinnerAdapter(){
-        with(CashingData){
-            if(mealData[MENU_KIND_SPINNER] as SpinnerAdapter? == null){
+    private fun bindSpinnerAdapter() {
+        with(CashingData) {
+            if (mealData[MENU_KIND_SPINNER] as SpinnerAdapter? == null) {
+                Log.d("tests", "new Spinner1")
                 ArrayAdapter.createFromResource(
                         requireContext(),
                         R.array.kind_array,
@@ -79,7 +83,8 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
                 binding.kindSpinner.adapter = mealData[MENU_KIND_SPINNER] as SpinnerAdapter?
             }
 
-            if(mealData[MENU_SORT_SPINNER] as SpinnerAdapter? == null){
+            if (mealData[MENU_SORT_SPINNER] as SpinnerAdapter? == null) {
+                Log.d("tests", "new Spinner2")
                 ArrayAdapter.createFromResource(
                         requireContext(),
                         R.array.sort_array,
@@ -101,14 +106,16 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 viewModel.kindNum = position
             }
+
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
         binding.sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                viewModel.sortNum = if (position == 0) SortNumber.ASC
-                else SortNumber.DESC
+                viewModel.sortNum = if (position == 0) SortNumber.DESC
+                else SortNumber.ASC
             }
+
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
@@ -118,10 +125,27 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
             }
             true
         }
+
+        binding.menuRcView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val lastVisibleItemPosition =
+                        (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition()
+                val itemTotalCount = recyclerView.adapter!!.itemCount - 1
+
+                // 스크롤이 끝에 도달했는지 확인
+                if (!binding.menuRcView.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount) {
+                    viewModel.page++
+                    viewModel.getMenuList()
+                }
+            }
+        })
+
     }
 
-    private fun bindView(){
-        with(CashingData){
+    private fun bindView() {
+        with(CashingData) {
+            Log.d("tests", "${menuData[MENU_LIST] as ArrayList<Food>?}")
             viewModel.menuList.value = menuData[MENU_LIST] as ArrayList<Food>?
         }
     }
