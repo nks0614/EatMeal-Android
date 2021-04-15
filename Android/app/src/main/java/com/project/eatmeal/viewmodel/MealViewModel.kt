@@ -19,9 +19,6 @@ import retrofit2.Retrofit
 
 class MealViewModel : BaseViewModel() {
 
-    val retofit : Retrofit = NetworkClient.getInstance()
-    val api : MealAPI = NetworkClient.getAPI()
-
     val breakfast : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
     val lunch : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
     val dinner : MutableLiveData<String> = MutableLiveData("로딩 중입니다.")
@@ -48,7 +45,7 @@ class MealViewModel : BaseViewModel() {
     val isGetMeal : MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun getTodayMeal(){
-        api.today().enqueue(object : Callback<MResponse<TodayMenu>>{
+        NetworkClient.API.today().enqueue(object : Callback<MResponse<TodayMenu>>{
             override fun onResponse(
                 call: Call<MResponse<TodayMenu>>,
                 response: Response<MResponse<TodayMenu>>
@@ -73,7 +70,7 @@ class MealViewModel : BaseViewModel() {
     }
 
     fun getMeal(){
-        api.meal(date = date.value!!)
+        NetworkClient.API.meal(date = spDateFormat("YYYYMMdd", progress))
                 .enqueue(object : Callback<MResponse<Meal>>{
                     override fun onResponse(call: Call<MResponse<Meal>>, response: Response<MResponse<Meal>>) {
                         if(response.code() == 200){

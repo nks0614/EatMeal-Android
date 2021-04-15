@@ -247,8 +247,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:overScrollMode="never"
                     android:visibility="@{viewModel.breakfastVisible ? View.VISIBLE : View.GONE}"
-                    app:recyclerItems="@{viewModel.breakfastList}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                    app:todayMealItems="@{viewModel.breakfastList}" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lunchInfoView"
@@ -297,7 +296,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:overScrollMode="never"
                     android:visibility="@{viewModel.lunchVisible ? View.VISIBLE : View.GONE}"
-                    app:recyclerItems="@{viewModel.lunchList}"
+                    app:todayMealItems="@{viewModel.lunchList}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -348,7 +347,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:overScrollMode="never"
                     android:visibility="@{viewModel.dinnerVisible ? View.VISIBLE : View.GONE}"
-                    app:recyclerItems="@{viewModel.dinnerList}"
+                    app:todayMealItems="@{viewModel.dinnerList}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

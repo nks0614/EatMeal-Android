@@ -44,8 +44,11 @@ interface MealAPI {
 
     @GET("menu/search") //메뉴검색
     fun search(
-        @Query("name") name : String
-    ) : Call<MResponse<SearchMenu>>
+        @Query("name") name : String,
+        @Query("page") page : Int,
+        @Query("sort") sort : Int,
+        @Query("kind") kind : Int
+    ) : Call<MResponse<Menu>>
 
     @GET("menu/today") //오늘 메뉴
     fun today() : Call<MResponse<TodayMenu>>

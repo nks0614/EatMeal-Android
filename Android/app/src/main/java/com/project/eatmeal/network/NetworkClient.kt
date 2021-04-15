@@ -6,8 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkClient {
-    private var instance: Retrofit? = null
-    private var API : MealAPI? = null
+    var API : MealAPI
 
     private val baseURL : String = "http://15.164.219.30/"
 
@@ -19,21 +18,16 @@ object NetworkClient {
         addInterceptor (interceptor)
     }.build()
 
-    fun getAPI(): MealAPI {
-        if(API == null){
-            API = instance?.create(MealAPI::class.java)
-        }
-        return API!!
-    }
-
-    fun getInstance(): Retrofit {
-        if (instance == null) {
-            instance = Retrofit.Builder()
+    init{
+        val retrofit = Retrofit.Builder()
                 .client(client)
                 .baseUrl(baseURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-        }
-        return instance!!
+
+        API = retrofit.create(MealAPI::class.java)
+
     }
+
+
 }

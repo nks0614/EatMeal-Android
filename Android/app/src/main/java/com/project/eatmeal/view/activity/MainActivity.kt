@@ -20,14 +20,14 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override val layoutRes: Int
         get() = R.layout.activity_main
 
-    var mealFragment : Fragment? = null
-    var menuFragment : Fragment? = null
-    var memberFragment : Fragment? = null
+    var mealFragment: Fragment? = null
+    var menuFragment: Fragment? = null
+    var memberFragment: Fragment? = null
 
     override fun init() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frameLayout, MealFragment())
-            .commit()
+                .replace(R.id.frameLayout, MealFragment())
+                .commit()
 
         binding.navigationView.setOnNavigationItemSelectedListener(ItemSelectedListener())
     }
@@ -36,11 +36,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     }
 
-    inner class ItemSelectedListener : BottomNavigationView.OnNavigationItemSelectedListener{
+    inner class ItemSelectedListener : BottomNavigationView.OnNavigationItemSelectedListener {
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
             val fm = supportFragmentManager.beginTransaction()
 
-            when(item.itemId){
+            when (item.itemId) {
                 R.id.meal -> {
                     if (mealFragment == null) {
                         Log.d("tests", "new meal")
@@ -49,14 +49,14 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                     fm.replace(R.id.frameLayout, mealFragment!!).commit()
                 }
                 R.id.menu -> {
-                    if(menuFragment == null) {
+                    if (menuFragment == null) {
                         Log.d("tests", "new menu")
                         menuFragment = MenuFragment()
                     }
                     fm.replace(R.id.frameLayout, menuFragment!!).commit()
                 }
                 R.id.member -> {
-                    if(memberFragment == null) {
+                    if (memberFragment == null) {
                         Log.d("tests", "new member")
                         memberFragment = MemberFragment()
                     }
