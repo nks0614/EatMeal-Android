@@ -5,7 +5,9 @@
     tools:context=".view.activity.MainActivity">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.project.eatmeal.viewmodel.MealViewModel" />
@@ -24,138 +26,130 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
                 android:paddingStart="8dp"
-                android:paddingEnd="8dp">
+                android:paddingTop="16dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="16dp">
 
 
                 <TextView
                     android:id="@+id/dateText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.date}"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    tools:text="2021년 04월 08일"
                     android:layout_marginTop="2dp"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@{viewModel.date}"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="2021년 04월 08일" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="&lt;"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
                     android:background="@drawable/button_radius"
+                    android:onClick="@{()->viewModel.previousCall()}"
                     android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
                     android:paddingTop="3dp"
+                    android:paddingEnd="10dp"
                     android:paddingBottom="3dp"
-                    app:layout_constraintTop_toTopOf="@id/dateText"
+                    android:text="&lt;"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@id/dateText"
                     app:layout_constraintEnd_toStartOf="@id/dateText"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:onClick="@{()->viewModel.previousCall()}"/>
+                    app:layout_constraintTop_toTopOf="@id/dateText" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="&gt;"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
-                    android:background="@drawable/button_radius"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
-                    app:layout_constraintTop_toTopOf="@id/dateText"
-                    app:layout_constraintBottom_toBottomOf="@id/dateText"
-                    app:layout_constraintStart_toEndOf="@id/dateText"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:onClick="@{()->viewModel.nextCall()}"/>
+
 
                 <TextView
                     android:id="@+id/breakfastTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:text="아침"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintTop_toTopOf="@id/breakfastMealView"
                     app:layout_constraintBottom_toBottomOf="@id/breakfastMealView"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/breakfastMealView"
-                    app:layout_constraintHorizontal_chainStyle="packed"/>
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/breakfastMealView" />
+
+
+
+
 
                 <TextView
-                    android:id="@+id/lunchTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="점심"
+                    android:background="@drawable/button_radius"
+                    android:onClick="@{()->viewModel.nextCall()}"
+                    android:paddingStart="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="3dp"
+                    android:text="&gt;"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintTop_toTopOf="@id/lunchMealView"
-                    app:layout_constraintBottom_toBottomOf="@id/lunchMealView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/lunchMealView"
-                    app:layout_constraintHorizontal_chainStyle="packed"/>
-
-                <TextView
-                    android:id="@+id/dinnerTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="저녁"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintTop_toTopOf="@id/dinnerMealView"
-                    app:layout_constraintBottom_toBottomOf="@id/dinnerMealView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/dinnerMealView"
-                    app:layout_constraintHorizontal_chainStyle="packed"/>
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/dateText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dateText"
+                    app:layout_constraintTop_toTopOf="@id/dateText" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/breakfastMealView"
                     android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.8"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="16dp"
-                    android:padding="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
                     android:background="@drawable/button_radius"
-                    app:layout_constraintTop_toBottomOf="@+id/dateText"
+                    android:padding="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/breakfastTitleText"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/dateText"
+                    app:layout_constraintWidth_percent="0.8">
 
                     <TextView
                         android:id="@+id/breakfastMealText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.breakfast}"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         android:textAlignment="textStart"
+                        android:textColor="@color/black"
                         android:textSize="12sp"
-                        tools:text="현미밥\n치킨"
-                        android:textColor="@color/black" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="현미밥\n치킨" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/lunchTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="점심"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/lunchMealView"
+                    app:layout_constraintEnd_toStartOf="@id/lunchMealView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/lunchMealView" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lunchMealView"
                     android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.8"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="16dp"
-                    android:padding="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
                     android:background="@drawable/button_radius"
-                    app:layout_constraintTop_toBottomOf="@+id/breakfastMealView"
+                    android:padding="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/lunchTitleText"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/breakfastMealView"
+                    app:layout_constraintWidth_percent="0.8">
 
                     <TextView
                         android:id="@+id/lunchMealText"
@@ -172,194 +166,52 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <TextView
+                    android:id="@+id/dinnerTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="저녁"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/dinnerMealView"
+                    app:layout_constraintEnd_toStartOf="@id/dinnerMealView"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/dinnerMealView" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/dinnerMealView"
                     android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.8"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="16dp"
-                    android:padding="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
                     android:background="@drawable/button_radius"
-                    app:layout_constraintTop_toBottomOf="@+id/lunchMealView"
+                    android:padding="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/dinnerTitleText"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/lunchMealView"
+                    app:layout_constraintWidth_percent="0.8">
 
                     <TextView
                         android:id="@+id/dinnerMealText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.dinner}"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         android:textAlignment="textStart"
+                        android:textColor="@color/black"
                         android:textSize="12sp"
-                        tools:text="현미밥\n치킨"
-                        android:textColor="@color/black"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/breakfastInfoView"
-                    android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.9"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:background="@drawable/button_radius"
-                    android:layout_marginTop="24dp"
-                    app:layout_constraintTop_toBottomOf="@id/dinnerMealView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:onClick="@{()->viewModel.breakfastViewCall()}">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="오늘의 아침 상세보기"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/breakfastArrow"
-                        android:layout_width="0dp"
-                        app:layout_constraintWidth_percent="0.06"
-                        android:layout_height="0dp"
-                        android:src="@drawable/down_arrow"
-                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="현미밥\n치킨" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/breakfastRcView"
-                    android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.9"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    app:layout_constraintTop_toBottomOf="@id/breakfastInfoView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:overScrollMode="never"
-                    android:visibility="@{viewModel.breakfastVisible ? View.VISIBLE : View.GONE}"
-                    app:todayMealItems="@{viewModel.breakfastList}" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/lunchInfoView"
-                    android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.9"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_radius"
-                    android:padding="8dp"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/breakfastRcView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:onClick="@{()->viewModel.lunchViewCall()}">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="오늘의 점심 상세보기"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/lunchArrow"
-                        android:layout_width="0dp"
-                        app:layout_constraintWidth_percent="0.06"
-                        android:layout_height="0dp"
-                        android:src="@drawable/down_arrow"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/lunchRcView"
-                    android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.9"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    app:layout_constraintTop_toBottomOf="@id/lunchInfoView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:overScrollMode="never"
-                    android:visibility="@{viewModel.lunchVisible ? View.VISIBLE : View.GONE}"
-                    app:todayMealItems="@{viewModel.lunchList}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/dinnerInfoView"
-                    android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.9"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_radius"
-                    android:padding="8dp"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/lunchRcView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:onClick="@{()->viewModel.dinnerViewCall()}">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="오늘의 저녁 상세보기"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/dinnerArrow"
-                        android:layout_width="0dp"
-                        app:layout_constraintWidth_percent="0.06"
-                        android:layout_height="0dp"
-                        android:src="@drawable/down_arrow"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/dinnerRcView"
-                    android:layout_width="0dp"
-                    app:layout_constraintWidth_percent="0.9"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="1dp"
-                    app:layout_constraintTop_toBottomOf="@id/dinnerInfoView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:overScrollMode="never"
-                    android:visibility="@{viewModel.dinnerVisible ? View.VISIBLE : View.GONE}"
-                    app:todayMealItems="@{viewModel.dinnerList}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         </ScrollView>
 
 
-
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 
 </layout>

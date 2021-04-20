@@ -29,12 +29,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
         get() = R.layout.fragment_menu
 
     override fun init() {
+        viewModel.getMenuList()
         bindSpinnerAdapter()
         listenerSetting()
-
-        if (CashingData.menuData[CashingData.MENU_LIST] == null) {
-            viewModel.getMenuList()
-        }
     }
 
     override fun observerViewModel() {
@@ -48,20 +45,12 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
                 }
             })
 
-            filterClick.observe(this@MenuFragment, Observer {
-                Log.d("tests", "filter")
-                when (binding.filterView.visibility) {
-                    View.GONE -> binding.filterView.visibility = View.VISIBLE
-                    View.VISIBLE -> binding.filterView.visibility = View.INVISIBLE
-                }
-            })
-
             cancelClick.observe(this@MenuFragment, Observer {
                 searchText.value = ""
             })
 
             isGetMenuList.observe(this@MenuFragment, Observer {
-                bindView()
+
             })
         }
     }
@@ -141,12 +130,5 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
             }
         })
 
-    }
-
-    private fun bindView() {
-        with(CashingData) {
-            Log.d("tests", "${menuData[MENU_LIST] as ArrayList<Food>?}")
-            viewModel.menuList.value = menuData[MENU_LIST] as ArrayList<Food>?
-        }
     }
 }

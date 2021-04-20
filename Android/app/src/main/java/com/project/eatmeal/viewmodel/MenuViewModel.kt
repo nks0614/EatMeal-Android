@@ -20,47 +20,16 @@ class MenuViewModel : BaseViewModel() {
     var sortNum = -1
     var page = 0
 
-    val menuList : MutableLiveData<ArrayList<Food>> = MutableLiveData()
-    val filterClick = SingleLiveEvent<Unit>()
+    val menuList: MutableLiveData<ArrayList<Food>> = MutableLiveData(ArrayList<Food>())
     val cancelClick = SingleLiveEvent<Unit>()
 
-    val isGetMenuList = MutableLiveData<Boolean>(false)
+    val isGetMenuList = MutableLiveData(false)
 
-    fun getMenuList(){
-        NetworkClient.API.menu(page, sortNum, kindNum)
-                .enqueue(object : Callback<MResponse<Menu>>{
-                    override fun onResponse(call: Call<MResponse<Menu>>, response: Response<MResponse<Menu>>) {
-                        val list = (CashingData.menuData[CashingData.MENU_LIST] as ArrayList<Food>?)
-                        when(response.code()){
-                            200 -> {
-                                if(CashingData.menuData[CashingData.MENU_LIST] == null){
-                                    response.body()?.data?.foods?.let {
-                                        CashingData.menuData.put(CashingData.MENU_LIST, it)
-                                    }
-                                } else {
-                                    response.body()?.data?.foods?.let {
-                                        list?.removeAt(list.lastIndex)
-                                        list?.addAll(it)
-                                        list?.add(Food("", 0, 0.0, 0, 0, 0, 0.0, ArrayList()))
-                                    }
-                                }
-                                isGetMenuList.value = !isGetMenuList.value!!
-                            }
-                            404 -> {
-                                isGetMenuList.value = !isGetMenuList.value!!
-                            }
-                            else -> {
-                                Log.d("tests", "${response.code()}")
-                            }
-                        }
-                    }
-                    override fun onFailure(call: Call<MResponse<Menu>>, t: Throwable) {
-                        Log.e("tests", "${t.message}")
-                    }
-                })
+    fun getMenuList() {
+
     }
 
-    fun filterCall() = filterClick.call()
+
     fun cancelCall() = cancelClick.call()
 
 }
