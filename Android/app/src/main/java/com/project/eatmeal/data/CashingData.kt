@@ -10,6 +10,10 @@ object CashingData {
 //    const val MENU_LIST = 6
     const val MENU_KIND_SPINNER = 7
     const val MENU_SORT_SPINNER = 8
+    const val MEMBER_NAME = 9
+    const val MEMBER_ID = 10
+    const val MEMBER_CLASS = 11
+
 
     val mealData = hashMapOf<Int, Any>()
     val todayMealData = hashMapOf<Int, Any>()
