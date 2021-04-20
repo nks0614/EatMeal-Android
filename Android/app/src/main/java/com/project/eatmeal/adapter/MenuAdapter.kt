@@ -1,5 +1,6 @@
 package com.project.eatmeal.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,10 +56,7 @@ class MenuAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int = menuList.size
 
     fun setItems(menuList : ArrayList<Food>){
-//        val count = itemCount
-//        this.menuList.addAll(menuList)
-//        notifyItemRangeInserted(count, 20)
-
+        Log.d("menuList" , "${menuList}")
         this.menuList = menuList
         notifyDataSetChanged()
     }

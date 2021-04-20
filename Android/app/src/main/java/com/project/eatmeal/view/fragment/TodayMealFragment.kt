@@ -8,12 +8,16 @@ import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.databinding.FragmentTodayMealBinding
 import com.project.eatmeal.viewmodel.TodayMealViewModel
+import java.util.*
+import kotlin.collections.ArrayList
 
 class TodayMealFragment : BaseFragment<FragmentTodayMealBinding,TodayMealViewModel>() {
     override val viewModel: TodayMealViewModel
         get() = ViewModelProvider(this)[TodayMealViewModel::class.java]
     override val layoutRes: Int
         get() = R.layout.fragment_today_meal
+
+    val now : Calendar = Calendar.getInstance()
 
     override fun init() {
         if(CashingData.todayMealData[CashingData.TODAY_MEAL_BREAKFAST_LIST] == null){
@@ -24,6 +28,15 @@ class TodayMealFragment : BaseFragment<FragmentTodayMealBinding,TodayMealViewMod
                 viewModel.lunchList.value = this.todayMealData[TODAY_MEAL_LUNCH_LIST] as ArrayList<Food>?
                 viewModel.dinnerList.value = this.todayMealData[TODAY_MEAL_DINNER_LIST] as ArrayList<Food>?
             }
+        }
+
+        val hour = now.get(Calendar.HOUR_OF_DAY)
+        if(hour < 8 || hour > 19){
+            viewRotateAnimation(viewModel.breakfastVisible.value!!, 1)
+        } else if(hour in 8..12){
+            viewRotateAnimation(viewModel.lunchVisible.value!!, 2)
+        } else {
+            viewRotateAnimation(viewModel.dinnerVisible.value!!, 3)
         }
     }
 

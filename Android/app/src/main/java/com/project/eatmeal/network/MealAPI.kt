@@ -38,6 +38,8 @@ interface MealAPI {
     @GET("menu") //메뉴
     fun menu(
         @Query("page") page : Int,
+        @Query("sort") sort : Int,
+        @Query("kind") kind : Int
     ) : Call<MResponse<Menu>>
 
     @GET("menu/search") //메뉴검색

@@ -1,5 +1,6 @@
 package com.project.eatmeal.view.fragment
 
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.project.eatmeal.R
@@ -18,7 +19,7 @@ class MemberFragment : BaseFragment<FragmentMemberBinding, MemberViewModel>() {
 
     override fun init() {
         if (CashingData.memberData.size != 0) {
-
+            binding.loginBtn.visibility = View.GONE
         }
     }
 

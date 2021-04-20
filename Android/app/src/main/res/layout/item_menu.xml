@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="@{Integer.toString(food.frequency)}" />
+            android:text="@{Double.toString(food.percent)}" />
 
 
         <TextView
@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@{Double.toString(food.percent)}" />
+            android:text="@{Double.toString(food.star)}" />
 
     </LinearLayout>
 
