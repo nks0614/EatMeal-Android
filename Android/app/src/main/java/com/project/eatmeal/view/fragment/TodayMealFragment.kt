@@ -11,7 +11,7 @@ import com.project.eatmeal.viewmodel.TodayMealViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
-class TodayMealFragment : BaseFragment<FragmentTodayMealBinding,TodayMealViewModel>() {
+class TodayMealFragment : BaseFragment<FragmentTodayMealBinding, TodayMealViewModel>() {
     override val viewModel: TodayMealViewModel
         get() = ViewModelProvider(this)[TodayMealViewModel::class.java]
     override val layoutRes: Int

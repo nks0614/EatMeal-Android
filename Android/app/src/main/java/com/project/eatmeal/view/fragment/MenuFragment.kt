@@ -7,7 +7,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SpinnerAdapter
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +15,7 @@ import com.project.eatmeal.R
 import com.project.eatmeal.base.BaseFragment
 import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.data.enums.SortNumber
+import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.databinding.FragmentMenuBinding
 import com.project.eatmeal.view.activity.MainActivity
 import com.project.eatmeal.viewmodel.MenuViewModel
@@ -144,4 +144,5 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
         })
 
     }
+
 }

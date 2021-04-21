@@ -79,15 +79,10 @@ dependencies {
     //my library
     implementation 'com.github.nks0614:DGSW_Project:1.6.2'
 
-    //skeleton
-    implementation 'com.ethanhua:skeleton:1.1.2'
-    implementation 'io.supercharge:shimmerlayout:2.1.0'
-
-    //button process
-    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
-
     //flow layout
     implementation 'com.google.android:flexbox:2.0.1'
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
 
 
