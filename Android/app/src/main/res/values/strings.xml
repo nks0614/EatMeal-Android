@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">EatMeal</string>
+    <string name="app_name">잇밀 for DGSW</string>
+
+    <string name="bottom_day_menu">날짜별 급식</string>
+    <string name="bottom_today_menu">오늘의 급식</string>
+    <string name="bottom_menu">메뉴</string>
+    <string name="bottom_member">회원</string>
+
+    <string name="login_id_hint">ID를 입력해주세요</string>
+    <string name="login_pw_hint">비밀번호를 입력해주세요</string>
+    <string name="login_auto_login">로그인 상태 유지</string>
+    <string name="login_signup">회원가입</string>
+    <string name="login_signin">로그인</string>
 </resources>

@@ -27,7 +27,6 @@ class MenuAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(food: Food){
             binding.setVariable(BR.food, food)
             binding.columnView.setOnClickListener {
-                Log.e("tests", "fffffffff")
                 makeDialog(binding, food)
             }
         }

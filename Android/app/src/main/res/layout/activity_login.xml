@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="144dp"
+            android:paddingBottom="32dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
 
@@ -35,6 +36,8 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingBottom="16dp"
+                    android:hint="@string/login_id_hint"
+                    android:text="@={viewModel.idText}"
                     tools:text="fhrmdls"
                     android:inputType="text"
                     android:imeOptions="actionNext"
@@ -52,7 +55,9 @@
                     android:padding="8dp"
                     android:paddingStart="16dp"
                     android:paddingBottom="16dp"
+                    android:hint="@string/login_pw_hint"
                     tools:text="fhrmdls"
+                    android:text="@={viewModel.pwText}"
                     android:inputType="textPassword"
                     android:imeOptions="actionNext"
                     app:layout_constraintTop_toBottomOf="@id/idEdit"
@@ -61,45 +66,49 @@
 
                 <CheckBox
                     android:id="@+id/autoLoginCheckBox"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    app:layout_constraintWidth_percent="0.32"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/pwEdit"
-                    app:layout_constraintStart_toStartOf="@id/pwEdit"/>
+                    app:layout_constraintStart_toStartOf="@id/pwEdit"
+                    android:checked="@{viewModel.checked}"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="@id/autoLoginCheckBox"
-                    app:layout_constraintStart_toEndOf="@id/autoLoginCheckBox"
+                    app:layout_constraintEnd_toEndOf="@id/autoLoginCheckBox"
                     app:layout_constraintBottom_toBottomOf="@id/autoLoginCheckBox"
-                    android:text="자동 로그인"/>
+                    android:text="@string/login_auto_login"/>
 
-                <TextView
+                <com.kusu.loadingbutton.LoadingButton
                     android:id="@+id/signUpBtn"
                     android:layout_width="0dp"
                     app:layout_constraintWidth_percent="0.38"
                     android:layout_height="wrap_content"
-                    android:text="회원가입"
+                    android:text="@string/login_signup"
                     android:gravity="center"
                     android:padding="8dp"
                     android:layout_marginTop="32dp"
-                    android:background="@drawable/button_radius"
+                    app:lb_buttonColor="#EDF0F8"
+                    app:lb_isShadowEnable="false"
                     app:layout_constraintTop_toBottomOf="@id/autoLoginCheckBox"
                     app:layout_constraintStart_toStartOf="@id/pwEdit"
-                    />
+                    android:onClick="@{()->viewModel.signUpBtnCall()}"/>
 
-                <TextView
-                    android:id="@+id/loginBtn"
+                <com.kusu.loadingbutton.LoadingButton
+                    android:id="@+id/signInBtn"
                     android:layout_width="0dp"
                     app:layout_constraintWidth_percent="0.38"
                     android:layout_height="wrap_content"
-                    android:text="로그인"
+                    android:text="@string/login_signin"
                     android:gravity="center"
-                    android:padding="8dp"
                     android:layout_marginTop="32dp"
-                    android:background="@drawable/button_radius"
+                    app:lb_buttonColor="#EDF0F8"
+                    app:lb_isShadowEnable="false"
                     app:layout_constraintTop_toBottomOf="@id/autoLoginCheckBox"
-                    app:layout_constraintEnd_toEndOf="@id/pwEdit"/>
+                    app:layout_constraintEnd_toEndOf="@id/pwEdit"
+                    android:onClick="@{()->viewModel.signInBtnCall()}"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

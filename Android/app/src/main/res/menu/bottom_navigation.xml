@@ -4,25 +4,25 @@
         android:id="@+id/meal"
         android:enabled="true"
         android:icon="@drawable/meal"
-        android:title="날짜별 급식"/>
+        android:title="@string/bottom_day_menu"/>
 
     <item
         android:id="@+id/todayMeal"
         android:enabled="true"
         android:icon="@drawable/meal"
-        android:title="오늘의 급식"/>
+        android:title="@string/bottom_menu"/>
 
     <item
         android:id="@+id/menu"
         android:enabled="true"
         android:icon="@drawable/menu"
-        android:title="메뉴"/>
+        android:title="@string/bottom_menu"/>
 
     <item
         android:id="@+id/member"
         android:enabled="true"
         android:icon="@drawable/avatar"
-        android:title="회원"/>
+        android:title="@string/bottom_member"/>
 
 
 </menu>

@@ -127,6 +127,7 @@
                         android:layout_weight="2"
                         android:background="@color/black"
                         android:gravity="center_horizontal"
+                        android:padding="3dp"
                         android:text="메뉴"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
@@ -137,6 +138,7 @@
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:text="빈도율"
+                        android:padding="3dp"
                         android:textSize="16sp" />
 
 
@@ -147,6 +149,7 @@
                         android:background="@color/black"
                         android:gravity="center_horizontal"
                         android:text="별점"
+                        android:padding="3dp"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
 

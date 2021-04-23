@@ -82,7 +82,11 @@ dependencies {
     //flow layout
     implementation 'com.google.android:flexbox:2.0.1'
 
+    //swipe fresh layout
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //loading button
+    implementation 'com.github.koushikcse:LoadingButton:1.7'
 
 
 
