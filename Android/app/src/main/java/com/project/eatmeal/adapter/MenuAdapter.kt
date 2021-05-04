@@ -13,9 +13,17 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.project.eatmeal.BR
 import com.project.eatmeal.R
+import com.project.eatmeal.data.CashingData
+import com.project.eatmeal.data.body.StarBody
 import com.project.eatmeal.data.response.Food
+import com.project.eatmeal.data.response.MResponseNoData
+import com.project.eatmeal.data.response.MemberStarFood
 import com.project.eatmeal.databinding.ItemLoadingBinding
 import com.project.eatmeal.databinding.ItemMenuBinding
+import com.project.eatmeal.network.NetworkClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MenuAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val VIEW_TYPE_ITEM = 0
@@ -95,9 +103,11 @@ class MenuAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         builder.setView(view)
         builder.setPositiveButton("별점 주기", DialogInterface.OnClickListener { dialog, which ->
-            Log.d("tests", starRating.rating.toString())
+            Log.d("MYTAG", starRating.rating.toString())
             if(starRating.rating != 0f){
-                Toast.makeText(binding.root.context, "${starRating.rating * 2}점", Toast.LENGTH_LONG).show()
+                giveStar((starRating.rating * 2).toInt(), food.name, binding.root.context)
+            } else {
+                Toast.makeText(binding.root.context, "별점을 입력하지 않았습니다!", Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -105,5 +115,42 @@ class MenuAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         alertDialog.show()
 
     }
+
+    private fun giveStar(star : Int, name : String, context : Context) {
+        val id = CashingData.memberData[CashingData.MEMBER_ID] as String?
+
+        if(id == null) {
+            Toast.makeText(context, "로그인해주시기 바랍니다!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val list = CashingData.memberData[CashingData.MEMBER_FOODS] as ArrayList<MemberStarFood>
+
+        for(starFood in list) {
+            if(starFood.name == name) {
+                Toast.makeText(context, "이미 별점을 준 메뉴입니다!", Toast.LENGTH_SHORT).show()
+                return
+            }
+        }
+
+        NetworkClient.API.star(
+            StarBody(
+                id = id,
+                star = star,
+                name = name
+            )
+        ).enqueue(object : Callback<MResponseNoData> {
+            override fun onResponse(call: Call<MResponseNoData>, response: Response<MResponseNoData>) {
+                if(response.code() == 200) Toast.makeText(context, "${star}점을 주었습니다!", Toast.LENGTH_SHORT).show()
+                else Toast.makeText(context, "별점 주는데 실패했습니다. 사유 : ${response.code()}", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(call: Call<MResponseNoData>, t: Throwable) {
+                Toast.makeText(context, "별점 주는데 실패했습니다. 사유 : ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+    }
+
 
 }

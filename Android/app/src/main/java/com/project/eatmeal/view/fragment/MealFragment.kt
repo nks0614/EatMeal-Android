@@ -23,20 +23,15 @@ class MealFragment : BaseFragment<FragmentMealBinding, MealViewModel>() {
         get() = ViewModelProvider(this)[MealViewModel::class.java]
 
     override fun init() {
-        if(CashingData.mealData.size == 0){
-            Log.d("tests", "Don't has Cashing")
-            initialize()
-        }
+        initialize()
 
         binding.scrollView.setOnRefreshListener {
-            viewModel.getMeal()
+            initialize()
         }
     }
 
     override fun observerViewModel() {
         with(viewModel){
-
-
             previousClick.observe(this@MealFragment, androidx.lifecycle.Observer {
                 date.value = spDateFormat("YYYY년 MM월 dd일", --progress)
                 getMeal()
@@ -49,7 +44,6 @@ class MealFragment : BaseFragment<FragmentMealBinding, MealViewModel>() {
 
             isGetMeal.observe(this@MealFragment, androidx.lifecycle.Observer {
                 binding.scrollView.isRefreshing = false
-                bindView()
             })
         }
     }
@@ -57,16 +51,6 @@ class MealFragment : BaseFragment<FragmentMealBinding, MealViewModel>() {
     private fun initialize(){
         with(viewModel){
             getMeal()
-        }
-    }
-
-    private fun bindView(){
-        with(viewModel){
-            with(CashingData){
-                breakfast.value = mealData[MEAL_BREAKFAST].toString()
-                lunch.value = mealData[MEAL_LUNCH].toString()
-                dinner.value = mealData[MEAL_DINNER].toString()
-            }
         }
     }
 

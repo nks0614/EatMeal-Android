@@ -23,6 +23,4 @@
         android:enabled="true"
         android:icon="@drawable/avatar"
         android:title="@string/bottom_member"/>
-
-
 </menu>

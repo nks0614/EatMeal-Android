@@ -22,6 +22,7 @@ class MenuViewModel : BaseViewModel() {
 
     val menuList: MutableLiveData<ArrayList<Food>> = MutableLiveData(ArrayList<Food>())
     val cancelClick = SingleLiveEvent<Unit>()
+    val isGetMenuList = MutableLiveData<Boolean>(false)
 
     var listType : Boolean = true
 
@@ -52,10 +53,12 @@ class MenuViewModel : BaseViewModel() {
                         Log.d("tests", "${response.code()}")
                     }
                 }
+                isGetMenuList.value = !isGetMenuList.value!!
             }
 
             override fun onFailure(call: Call<MResponse<Menu>>, t: Throwable) {
                 Log.d("tests", "${t.message}")
+                isGetMenuList.value = !isGetMenuList.value!!
             }
         })
     }

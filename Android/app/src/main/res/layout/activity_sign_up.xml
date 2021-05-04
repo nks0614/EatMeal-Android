@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activity.MainActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.project.eatmeal.viewmodel.SignUpViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/signUpText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/signup_text"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/idView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/signUpText"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/idEdit"
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="@={viewModel.idText}"
+                        android:hint="@string/login_id_hint"
+                        android:paddingStart="8dp"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:background="@color/transparent" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.kusu.loadingbutton.LoadingButton
+                    android:id="@+id/duplicateBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:text="@string/signup_duplicate"
+                    android:onClick="@{()->viewModel.duplicateClick()}"
+                    app:lb_buttonColor="#EDF0F8"
+                    android:layout_margin="8dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/idCheckInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/signup_ok_id"
+                app:layout_constraintTop_toBottomOf="@id/idView"
+                app:layout_constraintStart_toStartOf="@id/idView"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pwEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/idCheckInfoText"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.pwText}"
+                    android:hint="@string/login_pw_hint"
+                    android:paddingStart="8dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:background="@color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pwCheckEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/pwEdit"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.pwCheckText}"
+                    android:hint="@string/signup_check_pw"
+                    android:paddingStart="8dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:background="@color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/pwCheckEdit"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="@={viewModel.nameText}"
+                    android:hint="@string/signup_name"
+                    android:paddingStart="8dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:background="@color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/classEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@id/nameEdit"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:text="@={viewModel.classText}"
+                    android:hint="@string/signup_class"
+                    android:paddingStart="8dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:background="@color/transparent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.kusu.loadingbutton.LoadingButton
+                android:id="@+id/signUpBtn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:lb_buttonColor="#EDF0F8"
+                android:text="@string/signup_text"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/classEdit"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:onClick="@{()->viewModel.signUpClick()}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</layout>

@@ -37,6 +37,7 @@ class LoginViewModel : BaseViewModel() {
                             response.body()?.data?.id?.let { CashingData.memberData.put(CashingData.MEMBER_ID, it) }
                             response.body()?.data?.memberClass?.let { CashingData.memberData.put(CashingData.MEMBER_CLASS, it) }
                             response.body()?.data?.name?.let { CashingData.memberData.put(CashingData.MEMBER_NAME, it) }
+                            response.body()?.data?.starFood?.let { CashingData.memberData.put(CashingData.MEMBER_FOODS, it) }
                         }
                     }
                     status = response.code()

@@ -29,7 +29,6 @@ class MealViewModel : BaseViewModel() {
     val previousClick = SingleLiveEvent<Unit>()
     val nextClick = SingleLiveEvent<Unit>()
 
-
     val isGetMeal : MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun getMeal(){
@@ -37,19 +36,17 @@ class MealViewModel : BaseViewModel() {
                 .enqueue(object : Callback<MResponse<Meal>>{
                     override fun onResponse(call: Call<MResponse<Meal>>, response: Response<MResponse<Meal>>) {
                         if(response.code() == 200){
-                            Log.e("LOG TEST", "${response.code()}")
                             with(response.body()){
-                                CashingData.mealData.put(CashingData.MEAL_BREAKFAST, replaceText(this?.data?.breakfast!!))
-                                CashingData.mealData.put(CashingData.MEAL_LUNCH, replaceText(this?.data?.lunch!!))
-                                CashingData.mealData.put(CashingData.MEAL_DINNER, replaceText(this?.data?.dinner!!))
+                                breakfast.value = replaceText(this?.data?.breakfast!!)
+                                lunch.value = replaceText(this?.data?.lunch!!)
+                                dinner.value = replaceText(this?.data?.dinner!!)
                                 isGetMeal.value = !isGetMeal.value!!
                             }
                         } else {
-                            Log.e("LOG TEST", "${response.code()}")
                             val errMsg = "존재하지 않습니다."
-                            CashingData.mealData.put(CashingData.MEAL_BREAKFAST, errMsg)
-                            CashingData.mealData.put(CashingData.MEAL_LUNCH, errMsg)
-                            CashingData.mealData.put(CashingData.MEAL_DINNER, errMsg)
+                            breakfast.value = errMsg
+                            lunch.value = errMsg
+                            dinner.value = errMsg
                             isGetMeal.value = !isGetMeal.value!!
                         }
                     }

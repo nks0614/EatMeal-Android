@@ -11,4 +11,12 @@
     <string name="login_auto_login">로그인 상태 유지</string>
     <string name="login_signup">회원가입</string>
     <string name="login_signin">로그인</string>
+
+    <string name="signup_text">회원가입</string>
+    <string name="signup_duplicate">중복 확인</string>
+    <string name="signup_check_pw">비밀번호를 한번 더 적어주세요</string>
+    <string name="signup_name">이름을 입력해주세요</string>
+    <string name="signup_class">학번을 입력해주세요. ex) 3210</string>
+    <string name="signup_ok_id">사용할 수 있는 ID입니다.</string>
+    <string name="signup_no_id">사용할 수 없는 ID입니다.</string>
 </resources>

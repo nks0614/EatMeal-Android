@@ -33,6 +33,10 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
         bindSpinnerAdapter()
         listenerSetting()
         viewModel.getMenuList(0)
+
+        binding.refreshView.setOnRefreshListener {
+            viewModel.getMenuList(0)
+        }
     }
 
     override fun observerViewModel() {
@@ -47,6 +51,10 @@ class MenuFragment : BaseFragment<FragmentMenuBinding, MenuViewModel>() {
 
             cancelClick.observe(this@MenuFragment, Observer {
                 searchText.value = ""
+            })
+
+            isGetMenuList.observe(this@MenuFragment, Observer {
+                binding.refreshView.isRefreshing = false
             })
         }
     }

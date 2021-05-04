@@ -17,12 +17,12 @@ interface MealAPI {
 
     @POST("member/signup") //회원가입
     fun signUp(
-        @Body signUp : Member
+        @Body signUp : SignUpBody
     ) : Call<MResponseNoData>
 
     @POST("member/idcheck") //id 중복체크
     fun idCheck(
-        @Body id : String
+        @Body id : idCheckBody
     ) : Call<MResponseNoData>
 
     @POST("member/star") //별점

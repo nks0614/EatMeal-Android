@@ -26,6 +26,21 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     var memberFragment: Fragment? = null
     var todayMealFragment : Fragment? = null
 
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("MYTAG", "onRestart")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("MYTAG", "onPause")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("MYTAG", "onResume")
+    }
+
     override fun init() {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.frameLayout, MealFragment())
@@ -34,9 +49,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         binding.navigationView.setOnNavigationItemSelectedListener(ItemSelectedListener())
     }
 
-    override fun observerViewModel() {
-
-    }
+    override fun observerViewModel() {}
 
     inner class ItemSelectedListener : BottomNavigationView.OnNavigationItemSelectedListener {
         override fun onNavigationItemSelected(item: MenuItem): Boolean {

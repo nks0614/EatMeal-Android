@@ -10,6 +10,8 @@ class MemberViewModel : BaseViewModel() {
     val memberClass : MutableLiveData<String> = MutableLiveData()
 
     val loginClick = SingleLiveEvent<Unit>()
+    val logoutClick = SingleLiveEvent<Unit>()
 
+    fun logoutCall() = logoutClick.call()
     fun loginCall() = loginClick.call()
 }
