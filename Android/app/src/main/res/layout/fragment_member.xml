@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.activity.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <data>
         <variable
             name="viewModel"
-            type="com.project.eatmeal.viewmodel.MemberViewModel" />
+            type="com.project.eatmeal.ui.member.MemberViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

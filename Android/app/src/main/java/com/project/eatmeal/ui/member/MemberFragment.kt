@@ -1,4 +1,4 @@
-package com.project.eatmeal.view.fragment
+package com.project.eatmeal.ui.member
 
 import android.content.Context
 import android.view.View
@@ -8,9 +8,8 @@ import com.project.eatmeal.R
 import com.project.eatmeal.base.BaseFragment
 import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.databinding.FragmentMemberBinding
-import com.project.eatmeal.view.activity.LoginActivity
-import com.project.eatmeal.view.activity.MainActivity
-import com.project.eatmeal.viewmodel.MemberViewModel
+import com.project.eatmeal.ui.login.LoginActivity
+import com.project.eatmeal.ui.main.MainActivity
 import com.project.eatmeal.widget.EatMealApplication
 import com.project.simplecode.spfIntent
 import com.project.simplecode.spfIntentNoFin

@@ -1,4 +1,4 @@
-package com.project.eatmeal.viewmodel
+package com.project.eatmeal.ui.signup
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

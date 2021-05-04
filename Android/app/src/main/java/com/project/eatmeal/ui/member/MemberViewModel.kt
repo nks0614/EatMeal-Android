@@ -1,4 +1,4 @@
-package com.project.eatmeal.viewmodel
+package com.project.eatmeal.ui.member
 
 import androidx.lifecycle.MutableLiveData
 import com.project.eatmeal.base.BaseViewModel

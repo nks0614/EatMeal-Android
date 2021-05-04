@@ -1,22 +1,17 @@
-package com.project.eatmeal.view.activity
+package com.project.eatmeal.ui.login
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BaseActivity
-import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.databinding.ActivityLoginBinding
-import com.project.eatmeal.viewmodel.LoginViewModel
+import com.project.eatmeal.ui.main.MainActivity
+import com.project.eatmeal.ui.signup.SignUpActivity
 import com.project.eatmeal.widget.EatMealApplication
 import com.project.simplecode.spaIntent
 import com.project.simplecode.spaIntentNoFin
 import com.project.simplecode.spaToastLong
-import okhttp3.internal.cache2.Relay.Companion.edit
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     override val viewModel: LoginViewModel

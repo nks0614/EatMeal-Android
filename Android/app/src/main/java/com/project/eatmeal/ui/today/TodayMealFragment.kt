@@ -1,4 +1,4 @@
-package com.project.eatmeal.view.fragment
+package com.project.eatmeal.ui.today
 
 import android.view.animation.AnimationUtils
 import androidx.lifecycle.ViewModelProvider
@@ -7,7 +7,6 @@ import com.project.eatmeal.base.BaseFragment
 import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.databinding.FragmentTodayMealBinding
-import com.project.eatmeal.viewmodel.TodayMealViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -30,14 +29,6 @@ class TodayMealFragment : BaseFragment<FragmentTodayMealBinding, TodayMealViewMo
             }
         }
 
-        val hour = now.get(Calendar.HOUR_OF_DAY)
-        if(hour < 8 || hour > 19){
-            viewRotateAnimation(viewModel.breakfastVisible.value!!, 1)
-        } else if(hour in 8..12){
-            viewRotateAnimation(viewModel.lunchVisible.value!!, 2)
-        } else {
-            viewRotateAnimation(viewModel.dinnerVisible.value!!, 3)
-        }
     }
 
     override fun observerViewModel() {

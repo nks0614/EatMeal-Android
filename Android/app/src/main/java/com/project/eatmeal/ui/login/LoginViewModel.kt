@@ -1,6 +1,5 @@
-package com.project.eatmeal.viewmodel
+package com.project.eatmeal.ui.login
 
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.project.eatmeal.base.BaseViewModel
 import com.project.eatmeal.data.CashingData

@@ -1,18 +1,12 @@
-package com.project.eatmeal.view.fragment
+package com.project.eatmeal.ui.meal
 
 
-import android.util.Log
-import android.view.animation.AnimationUtils
 import androidx.lifecycle.ViewModelProvider
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BaseFragment
-import com.project.eatmeal.data.CashingData
-import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.databinding.FragmentMealBinding
-import com.project.eatmeal.viewmodel.MealViewModel
 import com.project.simplecode.spDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 class MealFragment : BaseFragment<FragmentMealBinding, MealViewModel>() {
 

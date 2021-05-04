@@ -1,14 +1,11 @@
-package com.project.eatmeal.view.activity
+package com.project.eatmeal.ui.signup
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BaseActivity
 import com.project.eatmeal.databinding.ActivitySignUpBinding
-import com.project.eatmeal.viewmodel.SignUpViewModel
 import com.project.simplecode.spaToastShort
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {

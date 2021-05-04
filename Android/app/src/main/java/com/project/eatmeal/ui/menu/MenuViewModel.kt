@@ -1,9 +1,8 @@
-package com.project.eatmeal.viewmodel
+package com.project.eatmeal.ui.menu
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.project.eatmeal.base.BaseViewModel
-import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.data.response.MResponse
 import com.project.eatmeal.data.response.Menu

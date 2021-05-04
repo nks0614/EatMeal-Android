@@ -1,21 +1,16 @@
-package com.project.eatmeal.viewmodel
+package com.project.eatmeal.ui.meal
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.project.eatmeal.base.BaseViewModel
-import com.project.eatmeal.data.CashingData
-import com.project.eatmeal.data.response.Food
 import com.project.eatmeal.data.response.MResponse
 import com.project.eatmeal.data.response.Meal
-import com.project.eatmeal.data.response.TodayMenu
-import com.project.eatmeal.network.MealAPI
 import com.project.eatmeal.network.NetworkClient
 import com.project.eatmeal.widget.SingleLiveEvent
 import com.project.simplecode.spDateFormat
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class MealViewModel : BaseViewModel() {
 
