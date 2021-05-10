@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.project.eatmeal.ui.item.todaymeal.TodayMealItemViewModel"/>
+
+        <variable
+            name="navigator"
+            type="com.project.eatmeal.ui.item.todaymeal.TodayMealItemNavigator" />
+
+    </data>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flexWrap="wrap"
+        app:alignItems="stretch"
+        app:alignContent="stretch"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="10dp">
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.item.name}"
+            tools:text="검은깨두부구이/양념장"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/frequencyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(viewModel.item.frequency)}"
+            tools:text="1000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/chainText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="번, 즉"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/percentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Double.toString(viewModel.item.percent)}"
+            tools:text="99.61"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="2dp" />
+
+        <TextView
+            android:id="@+id/chainText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="% 만큼 나왔고"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/starText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Double.toString(viewModel.item.star)}"
+            tools:text="0.0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginStart="4dp" />
+
+        <TextView
+            android:id="@+id/chainText4"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="의 평점입니다."
+            android:textColor="@color/black"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="4dp"/>
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+</layout>
