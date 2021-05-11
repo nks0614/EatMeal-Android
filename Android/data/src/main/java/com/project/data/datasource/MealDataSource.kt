@@ -20,13 +20,13 @@ class MealDataSource(
     fun getTodayMeal() : Single<TodayMenu> =
         remote.getTodayMeal()
 
-    fun getAllMenuPercent(kind : Int = 0, page : Int = 0) : Single<Menu> =
+    fun getAllMenuPercent(page : Int, kind : Int) : Single<Menu> =
         remote.getMenu(page, kind)
 
-    fun getAllMenuStar(kind : Int = 4, page : Int = 0) : Single<Menu> =
+    fun getAllMenuStar(page : Int, kind : Int) : Single<Menu> =
         remote.getMenu(page, kind)
 
-    fun getSearch(name : String, page : Int = 0) : Single<Menu> =
+    fun getSearch(name : String, page : Int) : Single<Menu> =
         remote.getSearch(name, page)
 
     fun login(body : SignInBody) : Single<Member> =

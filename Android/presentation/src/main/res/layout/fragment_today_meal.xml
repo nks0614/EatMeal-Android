@@ -18,10 +18,17 @@
         android:layout_height="wrap_content"
         android:overScrollMode="never">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:elevation="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/breakfastInfoView"
@@ -45,16 +52,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/breakfastArrow"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:src="@drawable/down_arrow"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.06" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -92,16 +89,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/lunchArrow"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:src="@drawable/down_arrow"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.06" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -141,16 +128,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/dinnerArrow"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:src="@drawable/down_arrow"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_percent="0.06" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

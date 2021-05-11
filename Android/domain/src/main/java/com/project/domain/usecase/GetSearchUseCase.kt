@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers
 class GetSearchUseCase (
     private val repository : MealRepository
 ){
-    fun execute(name : String, page : Int) : Single<Menu> =
+    fun execute(name : String, page : Int = 0) : Single<Menu> =
         repository.getSearch(name, page)
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 }

@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers
 class GetAllMenuPercentUseCase (
     private val repository : MealRepository
 ){
-    fun execute(page : Int, kind : Int) : Single<Menu> =
-        repository.getAllMenuPercent(page, kind)
+    fun execute(page : Int = 0, kind : Int = 0) : Single<Menu> =
+        repository.getAllMenuPercent(kind, page)
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 }

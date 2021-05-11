@@ -3,24 +3,24 @@
     <item
         android:id="@+id/meal"
         android:enabled="true"
-        android:icon="@drawable/meal"
+        android:icon="@drawable/ic_calendar"
         android:title="@string/bottom_day_menu"/>
 
     <item
         android:id="@+id/todayMeal"
         android:enabled="true"
-        android:icon="@drawable/meal"
-        android:title="@string/bottom_menu"/>
+        android:icon="@drawable/ic_meal"
+        android:title="@string/bottom_today_menu"/>
 
     <item
         android:id="@+id/menu"
         android:enabled="true"
-        android:icon="@drawable/menu"
+        android:icon="@drawable/ic_menu_book"
         android:title="@string/bottom_menu"/>
 
     <item
         android:id="@+id/member"
         android:enabled="true"
-        android:icon="@drawable/avatar"
+        android:icon="@drawable/ic_person"
         android:title="@string/bottom_member"/>
 </menu>

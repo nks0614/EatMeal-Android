@@ -13,8 +13,8 @@ import io.reactivex.Single
 interface MealRepository {
     fun getMeal(date : String) : Single<Meal>
     fun getTodayMeal() : Single<TodayMenu>
-    fun getAllMenuPercent( kind : Int, page : Int) : Single<Menu>
-    fun getAllMenuStar(kind : Int, page : Int) : Single<Menu>
+    fun getAllMenuPercent( page : Int, kind : Int) : Single<Menu>
+    fun getAllMenuStar(page : Int, kind : Int) : Single<Menu>
     fun getSearch(name : String, page : Int) : Single<Menu>
     fun login(signInBody : SignInBody) : Single<Member>
     fun signUp(signUpBody : SignUpBody) : Single<Int>

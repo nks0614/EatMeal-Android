@@ -24,7 +24,7 @@ class EatMealApplication : Application() {
                 dataSourceModule, apiModule, networkModule, remoteModule, repositoryModule,
                 useCaseModule, viewModelModule
             )
-            modules(modules)
+            this.modules(modules)
         }
     }
 

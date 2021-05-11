@@ -17,7 +17,9 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class MenuFragment : BindingFragment<FragmentMenuBinding>() {
 
-
+    private val viewModel : MenuViewModel by lazy {
+        getViewModel(MenuViewModel::class)
+    }
 
     private lateinit var viewPagerAdapter: ViewPagerAdapter
 
@@ -47,99 +49,7 @@ class MenuFragment : BindingFragment<FragmentMenuBinding>() {
     }
 }
 
-//    override fun init() {
-
-
-//        bindSpinnerAdapter()
-//        listenerSetting()
-//        viewModel.getMenuList(0)
-
-//        binding.refreshView.setOnRefreshListener {
-//            viewModel.getMenuList(0)
-//        }
-//    }
-
-//    override fun observerViewModel() {
-//        with(viewModel) {
-//            searchText.observe(this@MenuFragment, Observer {
-//                if (searchText.value?.length!! > 0) {
-//                    binding.cancelText.visibility = View.VISIBLE
-//                } else {
-//                    binding.cancelText.visibility = View.INVISIBLE
-//                }
-//            })
-//
-//            cancelClick.observe(this@MenuFragment, Observer {
-//                searchText.value = ""
-//            })
-//
-//            isGetMenuList.observe(this@MenuFragment, Observer {
-//                binding.refreshView.isRefreshing = false
-//            })
-//        }
-//    }
-
-//    private fun bindSpinnerAdapter() {
-//        with(CashingData) {
-//            if (mealData[MENU_KIND_SPINNER] as SpinnerAdapter? == null) {
-//                ArrayAdapter.createFromResource(
-//                    requireContext(),
-//                    R.array.kind_array,
-//                    android.R.layout.simple_spinner_item
-//                ).also { adapter ->
-//                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//                    mealData[MENU_KIND_SPINNER] = adapter
-//                    binding.kindSpinner.adapter = adapter
-//                }
-//            } else {
-//                binding.kindSpinner.adapter = mealData[MENU_KIND_SPINNER] as SpinnerAdapter?
-//            }
-//
-//            if (mealData[MENU_SORT_SPINNER] as SpinnerAdapter? == null) {
-//                ArrayAdapter.createFromResource(
-//                    requireContext(),
-//                    R.array.sort_array,
-//                    android.R.layout.simple_spinner_item
-//                ).also { adapter ->
-//                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//                    mealData[MENU_SORT_SPINNER] = adapter
-//                    binding.sortSpinner.adapter = adapter
-//                }
-//            } else {
-//                binding.sortSpinner.adapter = mealData[MENU_SORT_SPINNER] as SpinnerAdapter?
-//            }
-//        }
-//
-//    }
-//
 //    private fun listenerSetting() {
-//        binding.kindSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(
-//                parent: AdapterView<*>?,
-//                view: View?,
-//                position: Int,
-//                id: Long
-//            ) {
-//                viewModel.kindNum = position
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>?) {}
-//        }
-//
-//        binding.sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(
-//                parent: AdapterView<*>?,
-//                view: View?,
-//                position: Int,
-//                id: Long
-//            ) {
-//                viewModel.sortNum = if (position == 0) SortNumber.DESC
-//                else SortNumber.ASC
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>?) {}
-//        }
-//
 //        binding.searchEdit.setOnEditorActionListener { v, actionId, event ->
 //            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 //                if(!viewModel.searchText.value.isNullOrBlank()){

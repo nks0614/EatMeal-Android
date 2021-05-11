@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers
 class GetAllMenuStarUseCase (
     private val repository : MealRepository
 ){
-    fun execute(page : Int, kind : Int) : Single<Menu> =
-        repository.getAllMenuStar(page, kind)
+    fun execute(page: Int = 0, kind : Int = 4) : Single<Menu> =
+        repository.getAllMenuStar(kind, page)
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 }

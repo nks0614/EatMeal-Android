@@ -24,12 +24,12 @@ class MealRepositoryImpl(
         return dataSource.getTodayMeal()
     }
 
-    override fun getAllMenuPercent(kind: Int, page: Int): Single<Menu> {
-        return dataSource.getAllMenuPercent(kind, page)
+    override fun getAllMenuPercent(page: Int, kind: Int): Single<Menu> {
+        return dataSource.getAllMenuPercent(page, kind)
     }
 
-    override fun getAllMenuStar(kind: Int, page: Int): Single<Menu> {
-        return dataSource.getAllMenuStar(kind, page)
+    override fun getAllMenuStar(page: Int, kind: Int): Single<Menu> {
+        return dataSource.getAllMenuStar(page, kind)
     }
 
     override fun getSearch(name: String, page: Int): Single<Menu> {

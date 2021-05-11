@@ -4,12 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.main.MainActivity">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.project.eatmeal.ui.main.MainViewModel" />
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
-            app:itemTextColor="@color/black"
-            app:itemIconTint="@color/black"
+            app:itemTextColor="@drawable/menu_selector_color"
+            app:itemIconTint="@drawable/menu_selector_color"
             app:menu="@menu/bottom_navigation" />
 
     </LinearLayout>
