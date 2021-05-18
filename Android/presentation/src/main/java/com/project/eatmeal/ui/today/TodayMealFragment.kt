@@ -8,6 +8,7 @@ import com.project.domain.model.response.Food
 import com.project.eatmeal.BR
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingFragment
+import com.project.eatmeal.base.BindingItem
 import com.project.eatmeal.base.EventObserver
 import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.databinding.FragmentTodayMealBinding
@@ -39,7 +40,20 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getTodayMeal()
+        viewModel.isLoading.value = false
+        with(CashingData) {
+            if(todayMealData.size != 0) {
+                viewModel.breakfastList.value = todayMealData[TODAY_MEAL_BREAKFAST_LIST] as ArrayList<BindingItem>
+                viewModel.lunchList.value = todayMealData[TODAY_MEAL_LUNCH_LIST] as ArrayList<BindingItem>
+                viewModel.dinnerList.value = todayMealData[TODAY_MEAL_DINNER_LIST] as ArrayList<BindingItem>
+                viewModel.isLoading.value = true
+            } else {
+                viewModel.getTodayMeal()
+            }
+        }
+
+
+
     }
 
 

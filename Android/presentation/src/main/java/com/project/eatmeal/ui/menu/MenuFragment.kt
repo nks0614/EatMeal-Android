@@ -31,6 +31,7 @@ class MenuFragment : BindingFragment<FragmentMenuBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.setVariable(BR.viewModel, viewModel)
         viewPagerAdapter = ViewPagerAdapter(requireActivity())
         viewPagerAdapter.setFragmentList(arrayListOf(FrequencyFragment(), StarFragment()))
 

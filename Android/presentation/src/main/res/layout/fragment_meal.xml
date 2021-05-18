@@ -14,7 +14,7 @@
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/scrollView"
+        android:id="@+id/swipeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

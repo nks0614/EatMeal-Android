@@ -12,6 +12,7 @@
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,6 +21,7 @@
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/menuRcView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:menuItems="@{viewModel.menuList}"

@@ -1,5 +1,6 @@
 package com.project.eatmeal.widget
 
+import android.util.Log
 import com.project.domain.model.response.Food
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingItem
@@ -32,6 +33,8 @@ fun MenuItemViewModel.toMenuItem(navigator: MenuItemNavigator) =
         navigator = navigator,
         layoutId = R.layout.item_menu
     )
+
+
 
 fun MenuItemViewModel.toLoadingItem(navigator: MenuItemNavigator) =
     BindingItem(

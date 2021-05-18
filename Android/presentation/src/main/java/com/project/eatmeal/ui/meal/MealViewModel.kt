@@ -23,6 +23,7 @@ class MealViewModel(
     val nextClick = SingleLiveEvent<Unit>()
 
     val onErrorEvent = MutableLiveData<Event<String>>()
+    val isGetMeal = MutableLiveData<Boolean>(false)
 
     fun getMeal(){
         addDisposable(getMealUseCase.execute(spDateFormat("YYYYMMdd", progress))
@@ -30,7 +31,12 @@ class MealViewModel(
                 breakfast.value = replaceText(it.breakfast)
                 lunch.value = replaceText(it.lunch)
                 dinner.value = replaceText(it.dinner)
+                isGetMeal.value = !isGetMeal.value!!
             }, {
+                breakfast.value = "존재하지 않습니다."
+                lunch.value = "존재하지 않습니다."
+                dinner.value = "존재하지 않습니다."
+                isGetMeal.value = !isGetMeal.value!!
                 onErrorEvent.value = Event(it.message.toString())
             }))
     }

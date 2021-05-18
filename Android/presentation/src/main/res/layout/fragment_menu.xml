@@ -16,12 +16,44 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <EditText
+                android:id="@+id/search_box"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:background="@drawable/border"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:imeOptions="actionSearch"
+                android:inputType="text"/>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="2dp"
+                android:src="@drawable/ic_search"
+                app:layout_constraintEnd_toEndOf="@id/search_box"
+                app:layout_constraintTop_toTopOf="@id/search_box"
+                app:layout_constraintBottom_toBottomOf="@id/search_box"/>
+
+        </LinearLayout>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabRippleColor="@color/transparent"
-            app:tabIndicatorFullWidth="false" />
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorColor="@color/dark_blue"
+            app:tabSelectedTextColor="@color/dark_blue"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"

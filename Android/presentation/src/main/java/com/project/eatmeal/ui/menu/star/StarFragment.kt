@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.project.eatmeal.BR
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingFragment
 import com.project.eatmeal.databinding.FragmentStarBinding
@@ -24,6 +25,7 @@ class StarFragment : BindingFragment<FragmentStarBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.setVariable(BR.viewModel, viewModel)
     }
 
     override fun onResume() {

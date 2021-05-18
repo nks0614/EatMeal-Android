@@ -10,6 +10,6 @@ class GetAllMenuPercentUseCase (
     private val repository : MealRepository
 ){
     fun execute(page : Int = 0, kind : Int = 0) : Single<Menu> =
-        repository.getAllMenuPercent(kind, page)
+        repository.getAllMenuPercent(page, kind)
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 }

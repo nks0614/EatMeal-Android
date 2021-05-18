@@ -27,7 +27,6 @@ class TodayMealViewModel(
     val onErrorEvent = MutableLiveData<Event<String>>()
 
     fun getTodayMeal(){
-        isLoading.value = false
         addDisposable(getTodayMealUseCase.execute()
             .subscribe({
                 isLoading.value = true
