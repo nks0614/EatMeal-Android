@@ -13,6 +13,7 @@ import com.project.eatmeal.ui.item.menu.MenuItemNavigator
 import com.project.eatmeal.ui.item.menu.MenuItemViewModel
 import com.project.eatmeal.widget.SingleLiveEvent
 import com.project.eatmeal.widget.toMenuList
+import io.reactivex.disposables.Disposable
 
 class FrequencyViewModel(
     private val getAllMenuPercentUseCase: GetAllMenuPercentUseCase,

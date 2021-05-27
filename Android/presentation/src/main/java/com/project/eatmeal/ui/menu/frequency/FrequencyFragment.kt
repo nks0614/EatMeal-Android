@@ -55,6 +55,15 @@ class FrequencyFragment : BindingFragment<FragmentFrequencyBinding>() {
         listenerSetting()
     }
 
+    override fun onPause() {
+        super.onPause()
+        with(viewModel) {
+            viewModel.page = 0
+            disposables.clear()
+        }
+        Log.d("MYTAG", "FrequencyFragment Paused")
+    }
+
     private fun listenerSetting() {
         binding.swipeLayout.setOnRefreshListener {
             viewModel.page = 0

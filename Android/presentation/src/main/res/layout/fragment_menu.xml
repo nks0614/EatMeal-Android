@@ -53,7 +53,12 @@
             app:tabRippleColor="@color/transparent"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorColor="@color/dark_blue"
-            app:tabSelectedTextColor="@color/dark_blue"/>
+            app:tabSelectedTextColor="@color/dark_blue" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"

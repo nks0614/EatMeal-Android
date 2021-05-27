@@ -9,6 +9,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+val baseUrl = "http://10.80.161.167"
+
 val apiModule = module {
     fun provideMealApi(retroift : Retrofit) : MealAPI {
         return retroift.create(MealAPI::class.java)
@@ -28,7 +30,7 @@ val networkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl("http://15.164.219.30/")
+            .baseUrl(baseUrl)
             .client(get())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
