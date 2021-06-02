@@ -3,7 +3,6 @@ package com.project.eatmeal.ui.main
 import android.content.Context
 import android.os.Bundle
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingActivity
@@ -40,7 +39,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
     private fun setUpBottomNavigationBar() {
         val navGraphIds = listOf(
             R.navigation.navigation_meal,
-            R.navigation.navigation_member,
+            R.navigation.navigation_info,
             R.navigation.navigation_menu,
             R.navigation.navigation_today_meal
         )

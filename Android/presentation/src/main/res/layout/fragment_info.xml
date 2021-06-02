@@ -5,12 +5,9 @@
     tools:context=".ui.main.MainActivity">
 
     <data>
-
-        <import type="android.view.View" />
-
         <variable
             name="viewModel"
-            type="com.project.eatmeal.ui.today.TodayMealViewModel" />
+            type="com.project.eatmeal.ui.member.InfoViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +16,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>

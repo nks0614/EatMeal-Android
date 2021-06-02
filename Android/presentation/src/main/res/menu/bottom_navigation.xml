@@ -21,6 +21,6 @@
     <item
         android:id="@+id/member"
         android:enabled="true"
-        android:icon="@drawable/ic_person"
-        android:title="@string/bottom_member"/>
+        android:icon="@drawable/ic_info"
+        android:title="@string/bottom_info"/>
 </menu>

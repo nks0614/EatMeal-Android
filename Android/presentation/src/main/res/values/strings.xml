@@ -4,7 +4,7 @@
     <string name="bottom_day_menu">날짜별 급식</string>
     <string name="bottom_today_menu">오늘의 급식</string>
     <string name="bottom_menu">메뉴</string>
-    <string name="bottom_member">회원</string>
+    <string name="bottom_info">정보</string>
 
     <string name="login_id_hint">ID를 입력해주세요</string>
     <string name="login_pw_hint">비밀번호를 입력해주세요</string>
@@ -19,4 +19,7 @@
     <string name="signup_class">학번을 입력해주세요. ex) 3210</string>
     <string name="signup_ok_id">사용할 수 있는 ID입니다.</string>
     <string name="signup_no_id">사용할 수 없는 ID입니다.</string>
+
+    <string name="search_error">찾을 수 없는 검색어입니다!</string>
+    <string name="search_do_not_find">더 이상의 검색 결과가 없습니다!</string>
 </resources>

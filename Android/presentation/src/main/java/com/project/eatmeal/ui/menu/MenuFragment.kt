@@ -1,7 +1,11 @@
 package com.project.eatmeal.ui.menu
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -10,8 +14,11 @@ import com.project.eatmeal.R
 import com.project.eatmeal.adapter.ViewPagerAdapter
 import com.project.eatmeal.base.BindingFragment
 import com.project.eatmeal.databinding.FragmentMenuBinding
+import com.project.eatmeal.ui.main.MainActivity
 import com.project.eatmeal.ui.menu.frequency.FrequencyFragment
+import com.project.eatmeal.ui.menu.search.SearchActivity
 import com.project.eatmeal.ui.menu.star.StarFragment
+import com.project.simplecode.spfIntent
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 
@@ -36,6 +43,20 @@ class MenuFragment : BindingFragment<FragmentMenuBinding>() {
         viewPagerAdapter.setFragmentList(arrayListOf(FrequencyFragment(), StarFragment()))
 
         binding.viewPager.adapter = viewPagerAdapter
+
+        binding.searchBox.setOnEditorActionListener { v, actionId, event ->
+            if(actionId == EditorInfo.IME_ACTION_SEARCH) {
+                if(!viewModel.searchText.value.isNullOrBlank()) {
+                    val i = Intent(context, SearchActivity::class.java)
+                    i.putExtra("name", viewModel.searchText.value)
+                    startActivity(i)
+                }
+                val im = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                im.hideSoftInputFromWindow(binding.searchBox.windowToken, 0)
+            }
+            true
+        }
+
     }
 
     override fun onResume() {
@@ -49,37 +70,3 @@ class MenuFragment : BindingFragment<FragmentMenuBinding>() {
         }.attach()
     }
 }
-
-//    private fun listenerSetting() {
-//        binding.searchEdit.setOnEditorActionListener { v, actionId, event ->
-//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-//                if(!viewModel.searchText.value.isNullOrBlank()){
-//                    viewModel.page = 0
-//                    viewModel.getSearchList(0)
-//                }
-//                val im = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                im.hideSoftInputFromWindow(binding.searchEdit.windowToken, 0)
-//            }
-//            true
-//        }
-//
-//        binding.menuRcView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                super.onScrolled(recyclerView, dx, dy)
-//                val lastVisibleItemPosition =
-//                    (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastCompletelyVisibleItemPosition()
-//                val itemTotalCount = recyclerView.adapter!!.itemCount - 1
-//
-//                // 스크롤이 끝에 도달했는지 확인
-//                if (!binding.menuRcView.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount) {
-//                    viewModel.page++
-//                    if (viewModel.listType) {
-//                        viewModel.getMenuList(1)
-//                    } else {
-//                        viewModel.getSearchList(1)
-//                    }
-//                }
-//            }
-//        })
-//
-//    }

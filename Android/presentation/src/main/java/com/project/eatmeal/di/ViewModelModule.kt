@@ -2,7 +2,7 @@ package com.project.eatmeal.di
 
 import com.project.eatmeal.ui.login.LoginViewModel
 import com.project.eatmeal.ui.meal.MealViewModel
-import com.project.eatmeal.ui.member.MemberViewModel
+import com.project.eatmeal.ui.member.InfoViewModel
 import com.project.eatmeal.ui.menu.MenuViewModel
 import com.project.eatmeal.ui.menu.frequency.FrequencyViewModel
 import com.project.eatmeal.ui.menu.search.SearchViewModel
@@ -15,7 +15,7 @@ import org.koin.dsl.module
 val viewModelModule = module {
     viewModel { MealViewModel(get()) }
     viewModel { LoginViewModel(get()) }
-    viewModel { MemberViewModel() }
+    viewModel { InfoViewModel() }
     viewModel { FrequencyViewModel(get(), get()) }
     viewModel { StarViewModel(get(), get()) }
     viewModel { SignUpViewModel(get(), get()) }
