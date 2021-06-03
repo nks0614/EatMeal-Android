@@ -40,6 +40,7 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
 
     override fun onResume() {
         super.onResume()
+        binding.stateText.isSelected = true
         viewModel.isLoading.value = false
         with(CashingData) {
             if(todayMealData.size != 0) {

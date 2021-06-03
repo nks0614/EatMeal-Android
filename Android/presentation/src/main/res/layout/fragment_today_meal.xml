@@ -13,12 +13,28 @@
             type="com.project.eatmeal.ui.today.TodayMealViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/stateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:ellipsize="marquee"
+            android:paddingStart="4dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="4dp"
+            android:paddingBottom="8dp"
+            android:singleLine="true"
+            android:text="긴 글을 적으면 어떻게 될까 이런 궁금증에 잔뜩 적어봅니다. 쏼라ㅗ살라 이러쿵 저러쿵"
+            android:textSize="16sp" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 </layout>

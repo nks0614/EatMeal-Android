@@ -1,8 +1,5 @@
 package com.project.data.network
 
-import com.project.domain.model.body.IdCheckBody
-import com.project.domain.model.body.SignInBody
-import com.project.domain.model.body.SignUpBody
 import com.project.domain.model.body.StarBody
 import com.project.domain.model.response.*
 import io.reactivex.Single
@@ -13,21 +10,6 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface MealAPI {
-
-    @POST("member/signin") //로그인
-    fun login(
-        @Body signIn : SignInBody
-    ) : Single<Response<MResponse<Member>>>
-
-    @POST("member/signup") //회원가입
-    fun signUp(
-        @Body signUp : SignUpBody
-    ) : Single<Response<MResponseNoData>>
-
-    @POST("member/idcheck") //id 중복체크
-    fun idCheck(
-        @Body id : IdCheckBody
-    ) : Single<Response<MResponseNoData>>
 
     @POST("member/star") //별점
     fun giveStar(

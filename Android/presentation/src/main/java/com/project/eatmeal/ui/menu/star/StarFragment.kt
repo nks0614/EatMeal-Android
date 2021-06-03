@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.eatmeal.BR
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingFragment
+import com.project.eatmeal.base.BindingItem
 import com.project.eatmeal.base.EventObserver
+import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.databinding.FragmentStarBinding
 import com.project.eatmeal.widget.MenuCustomDialog
 import com.project.simplecode.spfToastShort
@@ -33,7 +35,10 @@ class StarFragment : BindingFragment<FragmentStarBinding>() {
             })
 
             itemFood.observe(this@StarFragment, Observer {
-                val dialog = MenuCustomDialog(context, it)
+                val dialog = MenuCustomDialog(context, it, giveStarUseCase)
+                dialog.event.observe(this@StarFragment, Observer {
+                    getMenuStar()
+                })
                 dialog.show()
             })
 
@@ -50,9 +55,16 @@ class StarFragment : BindingFragment<FragmentStarBinding>() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getMenuStar()
-
         listenerSetting()
+
+        val data : Any? = CashingData.menuData[CashingData.MENU_STAR_LIST]
+        if(data != null) {
+            viewModel.menuList.value = data as ArrayList<BindingItem>
+        } else {
+            viewModel.getMenuStar()
+        }
+
+
     }
 
     override fun onPause() {

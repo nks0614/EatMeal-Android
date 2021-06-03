@@ -10,7 +10,4 @@ val useCaseModule = module {
     single { GetSearchUseCase(get()) }
     single { GetTodayMealUseCase(get()) }
     single { GiveStarUseCase(get()) }
-    single { IdCheckUseCase(get()) }
-    single { LoginUseCase(get()) }
-    single { SignUpUseCase(get()) }
 }

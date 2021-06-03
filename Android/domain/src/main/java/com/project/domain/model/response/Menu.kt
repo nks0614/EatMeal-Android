@@ -14,7 +14,12 @@ data class Food(
     val lunch : Int,
     val dinner : Int,
     val star : Double,
-    val starMember : ArrayList<String>
+    val starMember : ArrayList<MemberStarFood>
 ) {
     constructor(name : String) : this(name, 0,0.0,0,0,0,0.0, ArrayList())
 }
+
+data class MemberStarFood(
+    val mac : String,
+    val star : Int
+)

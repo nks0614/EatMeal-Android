@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.project.eatmeal.BR
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingFragment
+import com.project.eatmeal.base.BindingItem
 import com.project.eatmeal.base.EventObserver
+import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.databinding.FragmentFrequencyBinding
 import com.project.eatmeal.widget.MenuCustomDialog
 import com.project.simplecode.spfToastShort
@@ -33,7 +35,10 @@ class FrequencyFragment : BindingFragment<FragmentFrequencyBinding>() {
             })
 
             itemFood.observe(this@FrequencyFragment, Observer {
-                val dialog = MenuCustomDialog(context, it)
+                val dialog = MenuCustomDialog(context, it, giveStarUseCase)
+                dialog.event.observe(this@FrequencyFragment, Observer {
+                    getMenuFrequency()
+                })
                 dialog.show()
             })
 
@@ -50,9 +55,15 @@ class FrequencyFragment : BindingFragment<FragmentFrequencyBinding>() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getMenuFrequency()
-
         listenerSetting()
+
+        val data : Any? = CashingData.menuData[CashingData.MENU_FREQUENCY_LIST]
+
+        if(data != null) {
+            viewModel.menuList.value = data as ArrayList<BindingItem>
+        } else {
+            viewModel.getMenuFrequency()
+        }
     }
 
     override fun onPause() {
