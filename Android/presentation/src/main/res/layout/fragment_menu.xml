@@ -54,7 +54,7 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabRippleColor="@color/transparent"
+            app:tabRippleColor="@color/white"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorColor="@color/dark_blue"
             app:tabSelectedTextColor="@color/dark_blue" />

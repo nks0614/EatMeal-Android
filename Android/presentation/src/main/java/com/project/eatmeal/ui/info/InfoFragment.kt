@@ -1,4 +1,4 @@
-package com.project.eatmeal.ui.member
+package com.project.eatmeal.ui.info
 
 import android.os.Bundle
 import android.view.View

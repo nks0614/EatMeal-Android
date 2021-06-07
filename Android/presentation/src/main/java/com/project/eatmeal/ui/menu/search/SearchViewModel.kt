@@ -1,5 +1,6 @@
 package com.project.eatmeal.ui.menu.search
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.project.domain.model.response.Food
 import com.project.domain.usecase.GetSearchUseCase
@@ -46,7 +47,12 @@ class SearchViewModel(
                 menuList.value = list
 
             },{
+                Log.d("MYTAG", "THROW")
                 isFind.value = true
+                val list = menuList.value
+                list?.removeLast()
+                menuList.value = list
+
             }))
     }
 

@@ -16,5 +16,6 @@
     <color name="deep_dark_blue">#0C4DB1</color>
     <color name="light_gray">#D3D3D3</color>
     <color name="gray">#A3A3A3</color>
+    <color name="dark_gray">#505050</color>
 
 </resources>

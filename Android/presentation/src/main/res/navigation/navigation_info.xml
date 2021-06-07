@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/memberFragment"
-        android:name="com.project.eatmeal.ui.member.InfoFragment"
+        android:name="com.project.eatmeal.ui.info.InfoFragment"
         android:label="MemberFragment" />
 </navigation>

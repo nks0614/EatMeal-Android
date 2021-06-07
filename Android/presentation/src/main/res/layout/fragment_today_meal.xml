@@ -33,6 +33,15 @@
             android:text="긴 글을 적으면 어떻게 될까 이런 궁금증에 잔뜩 적어봅니다. 쏼라ㅗ살라 이러쿵 저러쿵"
             android:textSize="16sp" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </LinearLayout>
 

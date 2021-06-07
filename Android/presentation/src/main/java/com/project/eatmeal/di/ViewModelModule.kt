@@ -1,7 +1,7 @@
 package com.project.eatmeal.di
 
 import com.project.eatmeal.ui.meal.MealViewModel
-import com.project.eatmeal.ui.member.InfoViewModel
+import com.project.eatmeal.ui.info.InfoViewModel
 import com.project.eatmeal.ui.menu.MenuViewModel
 import com.project.eatmeal.ui.menu.frequency.FrequencyViewModel
 import com.project.eatmeal.ui.menu.search.SearchViewModel

@@ -29,7 +29,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    dataBinding { enabled = true }
+    buildFeatures {
+        dataBinding = true
+    }
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -83,15 +85,10 @@ dependencies {
 
     //my library
     implementation 'com.github.nks0614:DGSW_Project:1.6.2'
-
-    //flow layout
-    implementation 'com.google.android:flexbox:2.0.1'
-
+    
     //swipe fresh layout
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
-    //loading button
-    implementation 'com.github.koushikcse:LoadingButton:1.7'
 
     //material
     implementation 'com.google.android.material:material:1.3.0'
