@@ -1,4 +1,4 @@
-package com.project.eatmeal.base
+package com.project.eatmeal.widget
 
 import androidx.lifecycle.Observer
 

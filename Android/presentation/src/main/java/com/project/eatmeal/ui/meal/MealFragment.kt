@@ -7,15 +7,12 @@ import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import com.project.eatmeal.BR
 import com.project.eatmeal.R
-import com.project.eatmeal.base.BindingActivity
 import com.project.eatmeal.base.BindingFragment
-import com.project.eatmeal.base.EventObserver
+import com.project.eatmeal.widget.EventObserver
 import com.project.eatmeal.databinding.FragmentMealBinding
 import com.project.simplecode.spDateFormat
-import com.project.simplecode.spfToastShort
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import java.lang.Exception
 import java.util.*

@@ -9,5 +9,15 @@
     <string name="search_error">찾을 수 없는 검색어입니다!</string>
     <string name="search_do_not_find">더 이상의 검색 결과가 없습니다!</string>
 
-    <string name="info_info">"또 이 급식이야? 도대체 몇 번을 나오는거야!"</string>
+    <string name="info_description">대소고 급식 빈도 서비스</string>
+    <string name="info_q">자주 하는 질문</string>
+    <string name="info_q1">잇밀은 어떻게 급식 빈도를 체크하나요?</string>
+    <string name="info_q2">잇밀의 메뉴 빈도율은 어떻게 계산되나요?</string>
+    <string name="info_q3">같은 메뉴 별점을 여러 번 주고 싶은데 안되나요?</string>
+    <string name="info_q4">잇밀을 만들게 된 계기는 무엇인가요?</string>
+    <string name="info_app">APP 정보</string>
+    <string name="info_app1">오픈소스 라이선스</string>
+    <string name="info_app2">수집하는 정보</string>
+    <string name="info_app3">개발자</string>
+
 </resources>

@@ -45,10 +45,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
 
     private fun setUpBottomNavigationBar() {
         val navGraphIds = listOf(
+            R.navigation.navigation_today_meal,
             R.navigation.navigation_meal,
-            R.navigation.navigation_info,
             R.navigation.navigation_menu,
-            R.navigation.navigation_today_meal
+            R.navigation.navigation_info
         )
 
         val controller = binding.navigationView.setupWithNavController(

@@ -2,6 +2,7 @@ package com.project.eatmeal.ui.info
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import com.project.eatmeal.BR
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingFragment
@@ -9,6 +10,7 @@ import com.project.eatmeal.databinding.FragmentInfoBinding
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class InfoFragment : BindingFragment<FragmentInfoBinding>() {
+
 
     private val viewModel : InfoViewModel by lazy {
         getViewModel(InfoViewModel::class)

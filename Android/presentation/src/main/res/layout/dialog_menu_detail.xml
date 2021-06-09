@@ -17,18 +17,18 @@
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="사과"
-        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="32sp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="8dp"/>
+        android:textStyle="bold"
+        tools:text="사과" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
 
 
         <TextView

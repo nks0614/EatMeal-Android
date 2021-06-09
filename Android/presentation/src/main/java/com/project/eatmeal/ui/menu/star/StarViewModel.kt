@@ -6,7 +6,7 @@ import com.project.domain.usecase.GetAllMenuStarUseCase
 import com.project.domain.usecase.GiveStarUseCase
 import com.project.eatmeal.base.BaseViewModel
 import com.project.eatmeal.base.BindingItem
-import com.project.eatmeal.base.Event
+import com.project.eatmeal.widget.Event
 import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.ui.item.menu.MenuItemNavigator
 import com.project.eatmeal.widget.toMenuList

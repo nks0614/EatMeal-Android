@@ -2,18 +2,15 @@ package com.project.eatmeal.ui.menu.frequency
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.eatmeal.BR
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingFragment
 import com.project.eatmeal.base.BindingItem
-import com.project.eatmeal.base.EventObserver
+import com.project.eatmeal.widget.EventObserver
 import com.project.eatmeal.data.CashingData
 import com.project.eatmeal.databinding.FragmentFrequencyBinding
 import com.project.eatmeal.widget.MenuCustomDialog
