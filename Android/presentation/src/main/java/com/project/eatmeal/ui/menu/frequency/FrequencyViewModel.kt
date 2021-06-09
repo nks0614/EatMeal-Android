@@ -22,6 +22,8 @@ class FrequencyViewModel(
     val onErrorEvent = MutableLiveData<Event<String>>()
     val itemFood = MutableLiveData<Food>()
 
+    val isFind = MutableLiveData<Boolean>(false)
+
     fun getMenuFrequency() {
         addDisposable(getAllMenuPercentUseCase.execute()
             .subscribe({
@@ -44,7 +46,10 @@ class FrequencyViewModel(
                 menuList.value = list
                 CashingData.menuData[CashingData.MENU_FREQUENCY_LIST] = list!!
             },{
-                onErrorEvent.value = Event(it.message.toString())
+                isFind.value = true
+                val list = menuList.value
+                list?.removeLast()
+                menuList.value = list
             }))
     }
 

@@ -35,6 +35,9 @@ class StarFragment : BindingFragment<FragmentStarBinding>() {
                 val dialog = MenuCustomDialog(context, it, giveStarUseCase)
                 dialog.event.observe(this@StarFragment, Observer {
                     getMenuStar()
+                    page = 0
+                    binding.menuRcView.smoothScrollToPosition(0)
+                    isFind.value = false
                 })
                 dialog.show()
             })
@@ -88,8 +91,11 @@ class StarFragment : BindingFragment<FragmentStarBinding>() {
 
                 // 스크롤이 끝에 도달했는지 확인
                 if (!binding.menuRcView.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount) {
-                    viewModel.page++
-                    viewModel.addMenuStar()
+                    if(!viewModel.isFind.value!!) {
+                        viewModel.page++
+                        viewModel.addMenuStar()
+                    }
+
                 }
             }
         })

@@ -22,6 +22,8 @@ class StarViewModel(
     val onErrorEvent = MutableLiveData<Event<String>>()
     val itemFood = MutableLiveData<Food>()
 
+    val isFind = MutableLiveData<Boolean>(false)
+
     fun getMenuStar() {
         addDisposable(getAllMenuStarUseCase.execute()
             .subscribe({
@@ -43,7 +45,10 @@ class StarViewModel(
                 menuList.value = list
                 CashingData.menuData[CashingData.MENU_STAR_LIST] = list!!
             },{
-                onErrorEvent.value = Event(it.message.toString())
+                isFind.value = true
+                val list = menuList.value
+                list?.removeLast()
+                menuList.value = list
             }))
     }
 

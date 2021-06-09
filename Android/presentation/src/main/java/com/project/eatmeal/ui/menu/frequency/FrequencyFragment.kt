@@ -35,6 +35,9 @@ class FrequencyFragment : BindingFragment<FragmentFrequencyBinding>() {
                 val dialog = MenuCustomDialog(context, it, giveStarUseCase)
                 dialog.event.observe(this@FrequencyFragment, Observer {
                     getMenuFrequency()
+                    page = 0
+                    binding.menuRcView.smoothScrollToPosition(0)
+                    isFind.value = false
                 })
                 dialog.show()
             })
@@ -87,8 +90,11 @@ class FrequencyFragment : BindingFragment<FragmentFrequencyBinding>() {
 
                 // 스크롤이 끝에 도달했는지 확인
                 if (!binding.menuRcView.canScrollVertically(1) && lastVisibleItemPosition == itemTotalCount) {
-                    viewModel.page++
-                    viewModel.addMenuFrequency()
+                    if(!viewModel.isFind.value!!) {
+                        viewModel.page++
+                        viewModel.addMenuFrequency()
+                    }
+
                 }
             }
         })

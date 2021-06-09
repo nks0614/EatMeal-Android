@@ -28,6 +28,9 @@ class SearchActivity : BindingActivity<ActivitySearchBinding>() {
                 dialog.event.observe(this@SearchActivity, Observer {
                     isLoading.value = true
                     getSearchMenu()
+                    page = 0
+                    binding.menuRcView.smoothScrollToPosition(0)
+                    isFind.value = false
                 })
                 dialog.show()
             })
