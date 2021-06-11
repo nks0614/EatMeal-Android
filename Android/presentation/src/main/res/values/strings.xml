@@ -12,9 +12,13 @@
     <string name="info_description">대소고 급식 빈도 서비스</string>
     <string name="info_q">자주 하는 질문</string>
     <string name="info_q1">잇밀은 어떻게 급식 빈도를 체크하나요?</string>
+    <string name="info_a1">급식 메뉴 이름 별로 서버에서 분류하여 빈도수를 체크합니다. 매일 12시마다 당일의 급식을 업데이트합니다.</string>
     <string name="info_q2">잇밀의 메뉴 빈도율은 어떻게 계산되나요?</string>
+    <string name="info_a2">(메뉴 / 급식 횟수) * 100으로 계산됩니다. 그러니 빈도율은 급식을 한번 먹을 때 이 메뉴가 나올 확률이라 보면 됩니다.</string>
     <string name="info_q3">같은 메뉴 별점을 여러 번 주고 싶은데 안되나요?</string>
+    <string name="info_a3">중복을 허용해도 될 정도로 큰 의미를 두지 않는 별점이지만, 무분별한 별점 입력을 위해 디바이스 1기 당 메뉴 별점은 한번으로 제한하고 있습니다.</string>
     <string name="info_q4">잇밀을 만들게 된 계기는 무엇인가요?</string>
+    <string name="info_a4">이거 또 나와? 이런 생각을 저도 많이 하고 살아서, 이 궁금증 해결해보고자 만들게 되었습니다.</string>
     <string name="info_app">APP 정보</string>
     <string name="info_app1">오픈소스 라이선스</string>
     <string name="info_app2">수집하는 정보</string>

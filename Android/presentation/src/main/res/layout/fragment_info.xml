@@ -5,7 +5,7 @@
     tools:context=".ui.main.MainActivity">
 
     <data>
-
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="com.project.eatmeal.ui.info.InfoViewModel" />
@@ -89,7 +89,19 @@
                 android:elevation="8dp"
                 android:gravity="center"
                 android:text="@string/info_q1"
-                android:textColor="@color/dark_gray" />
+                android:textColor="@color/dark_gray"
+                android:onClick="@{()->viewModel.clickQ1()}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="@string/info_a1"
+                android:visibility="@{viewModel.answer1 ? View.VISIBLE : View.GONE}"
+                android:textColor="@color/dark_gray"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -102,7 +114,19 @@
                 android:elevation="8dp"
                 android:gravity="center"
                 android:text="@string/info_q2"
-                android:textColor="@color/dark_gray" />
+                android:textColor="@color/dark_gray"
+                android:onClick="@{()->viewModel.clickQ2()}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="@string/info_a2"
+                android:visibility="@{viewModel.answer2 ? View.VISIBLE : View.GONE}"
+                android:textColor="@color/dark_gray"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -115,7 +139,19 @@
                 android:elevation="8dp"
                 android:gravity="center"
                 android:text="@string/info_q3"
-                android:textColor="@color/dark_gray" />
+                android:textColor="@color/dark_gray"
+                android:onClick="@{()->viewModel.clickQ3()}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="@string/info_a3"
+                android:visibility="@{viewModel.answer3 ? View.VISIBLE : View.GONE}"
+                android:textColor="@color/dark_gray"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -128,7 +164,19 @@
                 android:elevation="8dp"
                 android:gravity="center"
                 android:text="@string/info_q4"
-                android:textColor="@color/dark_gray" />
+                android:textColor="@color/dark_gray"
+                android:onClick="@{()->viewModel.clickQ4()}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:text="@string/info_a4"
+                android:visibility="@{viewModel.answer4 ? View.VISIBLE : View.GONE}"
+                android:textColor="@color/dark_gray"/>
 
             <TextView
                 android:layout_width="wrap_content"
