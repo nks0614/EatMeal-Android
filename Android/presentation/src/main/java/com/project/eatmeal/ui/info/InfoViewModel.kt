@@ -3,6 +3,7 @@ package com.project.eatmeal.ui.info
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.project.eatmeal.base.BaseViewModel
+import com.project.eatmeal.widget.SingleLiveEvent
 
 class InfoViewModel : BaseViewModel() {
 
@@ -10,6 +11,8 @@ class InfoViewModel : BaseViewModel() {
     val answer2 = MutableLiveData<Boolean>(false)
     val answer3 = MutableLiveData<Boolean>(false)
     val answer4 = MutableLiveData<Boolean>(false)
+
+    val app3 = SingleLiveEvent<Unit>()
 
     fun clickQ1() {
         answer1.value = !answer1.value!!
@@ -26,5 +29,7 @@ class InfoViewModel : BaseViewModel() {
     fun clickQ4() {
         answer4.value = !answer4.value!!
     }
+
+    fun app3Click() = app3.call()
 
 }

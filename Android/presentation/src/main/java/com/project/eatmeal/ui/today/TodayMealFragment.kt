@@ -95,7 +95,7 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
         with(viewModel) {
             when(type) {
                 0 ->  {
-                    if(breakfastList.value!!.size == 0) {
+                    if(breakfastList.value?.size == 0) {
                         hasMeal.value = true
                     } else {
                         hasMeal.value = false
@@ -103,7 +103,7 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
                     }
                 }
                 1 -> {
-                    if(lunchList.value!!.size == 0) {
+                    if(lunchList.value?.size == 0) {
                         hasMeal.value = true
                     } else {
                         hasMeal.value = false
@@ -111,7 +111,7 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
                     }
                 }
                 2 -> {
-                    if(dinnerList.value!!.size == 0) {
+                    if(dinnerList.value?.size == 0) {
                         hasMeal.value = true
                     } else {
                         hasMeal.value = false

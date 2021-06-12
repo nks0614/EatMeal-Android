@@ -1,5 +1,7 @@
 package com.project.eatmeal.ui.info
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -20,7 +22,11 @@ class InfoFragment : BindingFragment<FragmentInfoBinding>() {
 
     override fun observeEvent() {
         with(viewModel) {
+            app3.observe(this@InfoFragment, Observer {
+                val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3n1eC2b"))
+                startActivity(i)
 
+            })
         }
     }
 
