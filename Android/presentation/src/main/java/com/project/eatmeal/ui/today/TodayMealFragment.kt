@@ -17,6 +17,7 @@ import com.project.simplecode.spfToastShort
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.round
 
 class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
 
@@ -32,7 +33,6 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
         with(viewModel){
             breakfastClick.observe(this@TodayMealFragment, androidx.lifecycle.Observer {
                 binding.breakfastText.setTextColor(resources.getColor(R.color.dark_blue))
-                binding.breakfastText.setTypeface(null, Typeface.BOLD)
                 binding.lunchText.setTextColor(resources.getColor(R.color.gray))
                 binding.dinnerText.setTextColor(resources.getColor(R.color.gray))
                 checkList(0)
@@ -42,7 +42,6 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
             lunchClick.observe(this@TodayMealFragment, androidx.lifecycle.Observer {
                 binding.breakfastText.setTextColor(resources.getColor(R.color.gray))
                 binding.lunchText.setTextColor(resources.getColor(R.color.dark_blue))
-                binding.lunchText.setTypeface(null, Typeface.BOLD)
                 binding.dinnerText.setTextColor(resources.getColor(R.color.gray))
                 checkList(1)
                 listInStar(lunchList.value)
@@ -52,7 +51,6 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
                 binding.breakfastText.setTextColor(resources.getColor(R.color.gray))
                 binding.lunchText.setTextColor(resources.getColor(R.color.gray))
                 binding.dinnerText.setTextColor(resources.getColor(R.color.dark_blue))
-                binding.dinnerText.setTypeface(null, Typeface.BOLD)
                 checkList(2)
                 listInStar(dinnerList.value)
             })
@@ -60,19 +58,16 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
             getFinish.observe(this@TodayMealFragment, androidx.lifecycle.Observer {
                 if(time < 8) {
                     binding.breakfastText.setTextColor(resources.getColor(R.color.dark_blue))
-                    binding.breakfastText.setTypeface(null, Typeface.BOLD)
                     list.value = breakfastList.value
                     checkList(0)
                     listInStar(breakfastList.value)
                 } else if(time in 9..13) {
                     binding.lunchText.setTextColor(resources.getColor(R.color.dark_blue))
-                    binding.lunchText.setTypeface(null, Typeface.BOLD)
                     list.value = lunchList.value
                     checkList(1)
                     listInStar(lunchList.value)
                 } else {
                     binding.dinnerText.setTextColor(resources.getColor(R.color.dark_blue))
-                    binding.dinnerText.setTypeface(null, Typeface.BOLD)
                     list.value = dinnerList.value
                     checkList(2)
                     listInStar(dinnerList.value)
@@ -142,8 +137,10 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
             }
         }
 
-        binding.starRatingBar.rating = sum.toFloat() / 5
-        binding.starText.text = (sum / 5).toString()
+        var avg = sum / 5
+
+        binding.starRatingBar.rating = (round(avg * 10) / 10).toFloat()
+        binding.starText.text = (round(avg * 10) / 10).toString()
     }
 
 

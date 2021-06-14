@@ -2,7 +2,11 @@ package com.project.eatmeal.ui.main
 
 import android.app.Activity
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
@@ -35,6 +39,11 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
             setUpBottomNavigationBar()
         }
 
+        if(!networkCheck()) {
+            spaToastShort("인터넷 연결이 원활하지 않습니다. 다시 시도해주시기 바랍니다.")
+            finish()
+        }
+
         CashingData.MAC_ADDRESS = getMacAddress()
     }
 
@@ -63,26 +72,27 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
     }
 
     private fun getMacAddress() : String {
-        try {
-            val list = Collections.list(NetworkInterface.getNetworkInterfaces())
-            for(n in list) {
-                if(!n.name.equals("wlan0")) continue
-                val macBytes : ByteArray = n.hardwareAddress ?: return ""
-                val res = StringBuilder()
+        val a = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
+        Log.d("MYTAG", a)
+        return a
 
-                for(b in macBytes) {
-                    res.append(String.format("%02X", b))
-                }
+    }
 
-                if(res.isNotEmpty()) {
-                    res.deleteCharAt(res.length - 1)
-                }
-                return res.toString()
+    private fun networkCheck() : Boolean {
+        val manager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val nw = manager.activeNetwork ?: return false
+            val actNw = manager.getNetworkCapabilities(nw) ?: return false
+            return when {
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+                actNw.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+                else -> false
             }
-        } catch (e : Exception) {
-            e.printStackTrace()
+        } else {
+            val nwInfo = manager.activeNetworkInfo ?: return false
+            return nwInfo.isConnected
         }
-        return ""
     }
 
     override fun onBackPressed() {
