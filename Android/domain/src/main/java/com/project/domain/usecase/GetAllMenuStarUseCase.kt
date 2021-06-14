@@ -10,6 +10,6 @@ class GetAllMenuStarUseCase (
     private val repository : MealRepository
 ){
     fun execute(page: Int = 0, kind : Int = 4) : Single<Menu> =
-        repository.getAllMenuStar(kind, page)
+        repository.getAllMenuStar(page, kind)
             .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 }
