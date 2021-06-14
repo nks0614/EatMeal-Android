@@ -9,6 +9,8 @@ import com.project.eatmeal.BR
 import com.project.eatmeal.R
 import com.project.eatmeal.base.BindingFragment
 import com.project.eatmeal.databinding.FragmentInfoBinding
+import com.project.eatmeal.ui.info.open.OpenSourceActivity
+import com.project.simplecode.spfIntentNoFin
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class InfoFragment : BindingFragment<FragmentInfoBinding>() {
@@ -22,6 +24,10 @@ class InfoFragment : BindingFragment<FragmentInfoBinding>() {
 
     override fun observeEvent() {
         with(viewModel) {
+            app1.observe(this@InfoFragment, Observer {
+                spfIntentNoFin(OpenSourceActivity::class.java)
+            })
+
             app3.observe(this@InfoFragment, Observer {
                 val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://bit.ly/3n1eC2b"))
                 startActivity(i)

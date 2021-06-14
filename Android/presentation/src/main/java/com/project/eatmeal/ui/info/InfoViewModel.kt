@@ -11,7 +11,9 @@ class InfoViewModel : BaseViewModel() {
     val answer2 = MutableLiveData<Boolean>(false)
     val answer3 = MutableLiveData<Boolean>(false)
     val answer4 = MutableLiveData<Boolean>(false)
+    val app2 = MutableLiveData<Boolean>(false)
 
+    val app1 = SingleLiveEvent<Unit>()
     val app3 = SingleLiveEvent<Unit>()
 
     fun clickQ1() {
@@ -30,6 +32,11 @@ class InfoViewModel : BaseViewModel() {
         answer4.value = !answer4.value!!
     }
 
+    fun clickA2() {
+        app2.value = !app2.value!!
+    }
+
+    fun app1Click() = app1.call()
     fun app3Click() = app3.call()
 
 }

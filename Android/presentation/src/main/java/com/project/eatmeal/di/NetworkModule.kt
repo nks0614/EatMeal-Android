@@ -9,7 +9,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val baseUrl = "http://10.80.161.167"
+val baseUrl = "http://13.124.56.244/"
 
 val apiModule = module {
     fun provideMealApi(retroift : Retrofit) : MealAPI {

@@ -39,7 +39,6 @@ public class MenuCustomDialog extends Dialog {
     public MutableLiveData<Boolean> event = new MutableLiveData<>();
 
 
-
     public MenuCustomDialog(Context context, Food food, GiveStarUseCase giveStarUseCase) {
         super(context);
         this.food = food;
@@ -83,13 +82,17 @@ public class MenuCustomDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 if(isGivenStar) return;
-                if(ratingBar.getRating() == 0) Toast.makeText(getContext(), "별점은 1점 이상 주셔야 합니다.", Toast.LENGTH_SHORT).show();
+                if(ratingBar.getRating() == 0) {
+                    Toast.makeText(getContext(), "별점은 1점 이상 주셔야 합니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 disposable = giveStarUseCase.execute(
                         new StarBody(mac, (int) (ratingBar.getRating() * 2), food.getName()))
                         .subscribe(new Consumer<Integer>() {
                             @Override
                             public void accept(Integer integer) throws Exception {
-                                Toast.makeText(getContext(), "별점을 성공적으로 주셨습니다!", Toast.LENGTH_SHORT).show();
+                                String str = "별점 "+(int) (ratingBar.getRating() * 2)+"점을 성공적으로 주셨습니다!";
+                                Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
                                 event.setValue(false);
                                 dismiss();
                             }

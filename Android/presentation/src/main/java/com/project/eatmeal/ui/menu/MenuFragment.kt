@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -19,12 +20,13 @@ import com.project.eatmeal.ui.menu.frequency.FrequencyFragment
 import com.project.eatmeal.ui.menu.search.SearchActivity
 import com.project.eatmeal.ui.menu.star.StarFragment
 import com.project.simplecode.spfIntent
+import com.project.simplecode.spfToastShort
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 
 class MenuFragment : BindingFragment<FragmentMenuBinding>() {
 
-    private val viewModel : MenuViewModel by lazy {
+    private val viewModel: MenuViewModel by lazy {
         getViewModel(MenuViewModel::class)
     }
 
@@ -33,7 +35,11 @@ class MenuFragment : BindingFragment<FragmentMenuBinding>() {
     override fun getLayoutRes(): Int = R.layout.fragment_menu
 
     override fun observeEvent() {
-
+        with(viewModel) {
+            searchBtn.observe(this@MenuFragment, Observer {
+                goSearch()
+            })
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,14 +51,8 @@ class MenuFragment : BindingFragment<FragmentMenuBinding>() {
         binding.viewPager.adapter = viewPagerAdapter
 
         binding.searchBox.setOnEditorActionListener { v, actionId, event ->
-            if(actionId == EditorInfo.IME_ACTION_SEARCH) {
-                if(!viewModel.searchText.value.isNullOrBlank()) {
-                    val i = Intent(context, SearchActivity::class.java)
-                    i.putExtra("name", viewModel.searchText.value)
-                    startActivity(i)
-                }
-                val im = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                im.hideSoftInputFromWindow(binding.searchBox.windowToken, 0)
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                goSearch()
             }
             true
         }
@@ -68,5 +68,18 @@ class MenuFragment : BindingFragment<FragmentMenuBinding>() {
             }
             binding.viewPager.setCurrentItem(tab.position, true)
         }.attach()
+    }
+
+    private fun goSearch() {
+        if (!viewModel.searchText.value.isNullOrBlank()) {
+            val i = Intent(context, SearchActivity::class.java)
+            i.putExtra("name", viewModel.searchText.value)
+            startActivity(i)
+        } else {
+            spfToastShort("이름을 입력해주시기 바랍니다.")
+        }
+        val im =
+            (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        im.hideSoftInputFromWindow(binding.searchBox.windowToken, 0)
     }
 }

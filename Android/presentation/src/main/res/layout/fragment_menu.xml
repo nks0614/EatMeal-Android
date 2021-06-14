@@ -46,7 +46,8 @@
                 android:src="@drawable/ic_search"
                 app:layout_constraintEnd_toEndOf="@id/search_box"
                 app:layout_constraintTop_toTopOf="@id/search_box"
-                app:layout_constraintBottom_toBottomOf="@id/search_box"/>
+                app:layout_constraintBottom_toBottomOf="@id/search_box"
+                android:onClick="@{()->viewModel.searchClick()}"/>
 
         </LinearLayout>
 
