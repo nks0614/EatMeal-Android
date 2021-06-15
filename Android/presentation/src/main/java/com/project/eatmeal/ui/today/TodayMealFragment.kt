@@ -146,7 +146,7 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
 
         var avg = sum / 5
 
-        binding.starRatingBar.rating = (round(avg * 10) / 10).toFloat()
+        binding.starRatingBar.rating = (round(avg * 10) / 10).toFloat() / 2
         binding.starText.text = (round(avg * 10) / 10).toString()
     }
 

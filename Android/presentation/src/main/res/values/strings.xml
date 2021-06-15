@@ -22,7 +22,7 @@
     <string name="info_app">APP 정보</string>
     <string name="info_app1">오픈소스 라이선스</string>
     <string name="info_app2">수집하는 정보</string>
-    <string name="info_app2_answer">별점을 줄 때, 여러분의 디바이스 MAC 주소를 받습니다.</string>
+    <string name="info_app2_answer">별점을 줄 때, 여러분의 디바이스 ANDROID_ID 주소를 받습니다.</string>
     <string name="info_app3">개발자</string>
 
     <string name="open_title">오픈소스 라이선스</string>
