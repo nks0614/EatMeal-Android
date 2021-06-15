@@ -32,11 +32,7 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
     override fun observeEvent() {
         with(viewModel){
             breakfastClick.observe(this@TodayMealFragment, androidx.lifecycle.Observer {
-                binding.breakfastText.setTextColor(resources.getColor(R.color.dark_blue))
-                binding.lunchText.setTextColor(resources.getColor(R.color.gray))
-                binding.dinnerText.setTextColor(resources.getColor(R.color.gray))
-                checkList(0)
-                listInStar(breakfastList.value)
+                breakfastSetting()
             })
 
             lunchClick.observe(this@TodayMealFragment, androidx.lifecycle.Observer {
@@ -56,22 +52,29 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
             })
 
             getFinish.observe(this@TodayMealFragment, androidx.lifecycle.Observer {
-                if(time < 8) {
+                if(time <= 8) {
                     binding.breakfastText.setTextColor(resources.getColor(R.color.dark_blue))
+                    binding.lunchText.setTextColor(resources.getColor(R.color.gray))
+                    binding.dinnerText.setTextColor(resources.getColor(R.color.gray))
                     list.value = breakfastList.value
                     checkList(0)
                     listInStar(breakfastList.value)
                 } else if(time in 9..13) {
+                    binding.breakfastText.setTextColor(resources.getColor(R.color.gray))
                     binding.lunchText.setTextColor(resources.getColor(R.color.dark_blue))
+                    binding.dinnerText.setTextColor(resources.getColor(R.color.gray))
                     list.value = lunchList.value
                     checkList(1)
                     listInStar(lunchList.value)
                 } else {
+                    binding.breakfastText.setTextColor(resources.getColor(R.color.gray))
+                    binding.lunchText.setTextColor(resources.getColor(R.color.gray))
                     binding.dinnerText.setTextColor(resources.getColor(R.color.dark_blue))
                     list.value = dinnerList.value
                     checkList(2)
                     listInStar(dinnerList.value)
                 }
+                binding.refreshView.isRefreshing = false
             })
         }
     }
@@ -93,6 +96,10 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
             } else {
                 viewModel.getTodayMeal()
             }
+        }
+
+        binding.refreshView.setOnRefreshListener {
+            viewModel.getTodayMeal()
         }
     }
 
@@ -141,6 +148,18 @@ class TodayMealFragment : BindingFragment<FragmentTodayMealBinding>() {
 
         binding.starRatingBar.rating = (round(avg * 10) / 10).toFloat()
         binding.starText.text = (round(avg * 10) / 10).toString()
+    }
+
+    private fun breakfastSetting() {
+        binding.breakfastText.setTextColor(resources.getColor(R.color.dark_blue))
+        binding.lunchText.setTextColor(resources.getColor(R.color.gray))
+        binding.dinnerText.setTextColor(resources.getColor(R.color.gray))
+        checkList(0)
+        listInStar(viewModel.breakfastList.value)
+    }
+
+    private fun lunchSetting() {
+
     }
 
 
