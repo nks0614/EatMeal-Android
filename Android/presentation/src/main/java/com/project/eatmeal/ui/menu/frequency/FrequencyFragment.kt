@@ -79,6 +79,7 @@ class FrequencyFragment : BindingFragment<FragmentFrequencyBinding>() {
         binding.swipeLayout.setOnRefreshListener {
             viewModel.page = 0
             viewModel.getMenuFrequency()
+            viewModel.isFind.value = false
         }
 
         binding.menuRcView.addOnScrollListener(object : RecyclerView.OnScrollListener() {

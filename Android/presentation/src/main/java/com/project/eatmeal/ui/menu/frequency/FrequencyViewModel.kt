@@ -16,6 +16,7 @@ class FrequencyViewModel(
     val giveStarUseCase: GiveStarUseCase
 ) : BaseViewModel(), MenuItemNavigator {
 
+
     var page = 0
     val menuList = MutableLiveData<ArrayList<BindingItem>>()
 

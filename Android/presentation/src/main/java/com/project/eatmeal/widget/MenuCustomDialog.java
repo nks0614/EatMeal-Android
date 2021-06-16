@@ -68,7 +68,7 @@ public class MenuCustomDialog extends Dialog {
         breakfast.setText(String.valueOf(food.getBreakfast()));
         lunch.setText(String.valueOf(food.getLunch()));
         dinner.setText(String.valueOf(food.getDinner()));
-        star.setText(String.valueOf(food.getStar()));
+        star.setText(String.format("%.1f", food.getStar()));
 
 
         for(MemberStarFood m : food.getStarMember()) {

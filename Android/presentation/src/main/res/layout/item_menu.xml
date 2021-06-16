@@ -81,7 +81,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@{Double.toString(viewModel.item.star)}"
+                    android:text="@{viewModel.star}"
                     android:textColor="@color/black"/>
 
             </LinearLayout>
